@@ -3,9 +3,4 @@
 @tailwind utilities;
 
 
-.induk:hover .skel{
-    -ms-transform: scaleY(1.5); /* IE 9 */
-  transform: scaleY(1.5);
-  -ms-transform: scaleX(1.5); /* IE 9 */
-  transform: scaleX(1.5);
-}
+
