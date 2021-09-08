@@ -27,7 +27,8 @@ module.exports = {
       purple: colors.violet,
       pink: colors.pink,
       pi: ['#D90368'],
-      bg: ['#F1E9DA']
+      bg: ['#F1E9DA'],
+      intro: ['#282828']
     },
     spacing: {
       px: '1px',

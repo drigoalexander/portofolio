@@ -6,10 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
         content="width=device-width, initial-scale=1, viewport-fit=cover,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <meta name="description"
-        content="Drigo alexander is a junior website developer who likes front-end developer">
-    <meta name="keywords"
-        content="Drigo, alexander, junior, website, developer, front-end">
+    <meta name="description" content="Drigo alexander is a junior website developer who likes front-end developer">
+    <meta name="keywords" content="Drigo, alexander, junior, website, developer, front-end">
     <meta name="author" content="Drigo Alexander - Front-End Developer Wannabe">
     <title>Drigo Alexander</title>
 
@@ -23,38 +21,46 @@
     <meta property="og:description"
         content="Drigo alexander is a junior website developer who likes front-end developer">
     <meta property="og:type" content="website">
-    <meta property="og:image"content="https://res.cloudinary.com/dxy6iowwg/image/upload/v1631042637/cloudi_kfagy9.png">
+    <meta property="og:image" content="https://res.cloudinary.com/dxy6iowwg/image/upload/v1631042637/cloudi_kfagy9.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
-         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 </head>
 
+
+
+
 <body class="font-lato bg-bg-0">
+    <div class="intro fixed bg-black w-full h-full flex items-center justify-center z-10">
+        <div class="bg-black overflow-hidden hide">
+            <img src="img/white.png" alt="" class="image">
+        </div>
+    
+    </div>
+    <div class="slider bg-intro-0 fixed w-full h-full z-20 transform translate-y-full"></div>
     <div class="max-w-screen-xl mx-auto min-w-min">
-
-
         <nav>
             <div class="py-16 " ">
 
-                <li class="flex items-center">
-                    <ul class="font-bold text-sm px-20">
-                        <img src="img/logodas.png" alt="" class="">
-                    </ul>
-                    <ul class="text-sm leading-tight">
-                        My <br>Personal <br>Website
-                    </ul>
+                <li class=" flex items-center">
+                <ul class="font-bold text-sm px-20">
+                    <img src="img/logodas.png" alt="" class="">
+                </ul>
+                <ul class="text-sm leading-tight">
+                    My <br>Personal <br>Website
+                </ul>
                 </li>
 
             </div>
         </nav>
 
         <main>
-            <div class="py-32 px-30" >
+            <div class="py-32 px-30">
                 <div class="flex justify-center items-center  font-bold" data-aos="zoom-out" data-aos-duration="3000">
                     <h1 class="pl-36 text-9xl ">
                         The Story of Mine<br class=""> <span class="text-7xl ">Drigo Alexander</span>
@@ -68,7 +74,7 @@
                         to know me</a> better or see what projects I've done below.
                 </h2>
 
-                <div class="w-2/3 mx-auto" >
+                <div class="w-2/3 mx-auto">
                     <h2 class="text-2xl">
                         Organizations
                     </h2>
@@ -163,7 +169,8 @@
                             <a href="#"
                                 class="induk absolute text-bg-0 bg-black w-full h-full flex justify-center items-center opacity-0 translate-y-20 hover:translate-y-0 hover:opacity-80 font-bold text-3xl transform transition duration-300 scale-100 group-hover:scale-150">See
                                 This Project</a>
-                            <img src="img/portoicw.png" alt="Project Indonesian Corossion Week" class="scale-100 group-hover:scale-150">
+                            <img src="img/portoicw.png" alt="Project Indonesian Corossion Week"
+                                class="scale-100 group-hover:scale-150">
                         </div>
 
 
@@ -177,7 +184,7 @@
 
                 <div class="py-40 flex">
 
-                    
+
                     <div class=" flex flex-col justify-center items-center relative">
 
                         <div class="rounded-xl w-2/3 overflow-hidden relative">
@@ -190,7 +197,8 @@
 
 
                         <p class="py-6 text-xl text-center">
-                            On this project, for the first time, I work as Project Manager for the Website Team,<br> it is hell at first, but I do have a great team to accompany me.
+                            On this project, for the first time, I work as Project Manager for the Website Team,<br> it
+                            is hell at first, but I do have a great team to accompany me.
                         </p>
                     </div>
 
@@ -203,9 +211,9 @@
         </main>
 
         <footer>
-<h6 class="flex justify-center items-center pb-4 text-lg">
-drigoalexander 2021. All rights reserved.
-</h6>
+            <h6 class="flex justify-center items-center pb-4 text-lg">
+                drigoalexander 2021. All rights reserved.
+            </h6>
         </footer>
 
     </div>
@@ -215,6 +223,12 @@ drigoalexander 2021. All rights reserved.
     <script>
         AOS.init();
     </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"
+        integrity="sha512-UxP+UhJaGRWuMG2YC6LPWYpFQnsSgnor0VUF3BHdD83PS/pOpN+FYbZmrYN+ISX8jnvgVUciqP/fILOXDjZSwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="app.js"></script>
 </body>
 
 </html>

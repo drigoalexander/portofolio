@@ -4,3 +4,7 @@
 
 
 
+.hide img{
+    transform: translateY(100%);
+    display: inline-block;
+}
