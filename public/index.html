@@ -29,15 +29,15 @@
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css">
 </head>
 
 
 
 
 <body class="font-lato bg-bg-0">
-
-    <div class="intro fixed bg-black w-full h-full flex items-center justify-center z-10">
+  
+    <div class="intro fixed bg-black w-full h-full flex items-center justify-center z-20">
         <div class=" overflow-hidden hide flex">
            
                 <img src="img/white.png" alt="" class="image">
@@ -47,12 +47,50 @@
         </div>
     
     </div>
-    <div class="slider bg-intro-0 fixed w-full h-full z-20 transform translate-y-full"></div>
+    <div class="slider bg-intro-0 fixed w-full h-full z-30 transform translate-y-full"></div>
+
+    <div class="fixed w-full bg-black bottom-0  z-10 transform translate-y-full transition duration-200 bawah">
+        <div class="flex justify-evenly">
+            <div class="w-1/5 bg-pi-0 hover:bg-pi2-0 translate transform duration-300">
+                <a href="index.html" class="flex items-center justify-center py-4 text-white">
+                    Homepage
+                </a>
+                
+            </div>
+
+            <div class="w-1/5  bg-pi-0 hover:bg-pi2-0 translate transform duration-300">
+                <a href="quiz1/profile.html" class="flex items-center justify-center py-4 text-white">
+                    Profile
+                </a>
+                
+            </div>
+
+            <div class="w-1/5 bg-pi-0 hover:bg-pi2-0 translate transform duration-300">
+                <a href="quiz1/hometown.html" class="flex items-center justify-center py-4 text-white">
+                    Hometown
+                </a>
+            </div>
+
+            <div class="w-1/5 bg-pi-0 hover:bg-pi2-0 translate transform duration-300 ">
+                <a href="quiz1/food.html" class="flex items-center justify-center py-4 text-white">
+                    Food
+                </a>
+            </div>
+
+            <div class="w-1/5 bg-pi-0 hover:bg-pi2-0 translate transform duration-300">
+                <a href="quiz1/tourist.html" class="flex items-center justify-center py-4 text-white">
+                    Tourist
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="max-w-screen-xl mx-auto min-w-min">
         <nav>
-            <div class="py-16 " ">
-
+            <div class="py-16 flex justify-between" >
+                
                 <li class=" flex items-center">
+                   
                 <ul class="font-bold text-sm px-20">
                     <img src="img/logodas.png" alt="" class="">
                 </ul>
@@ -61,8 +99,18 @@
                 </ul>
                 </li>
 
+<button type="button" class="open block">
+    <i class="uit uit-ellipsis-v"></i>
+</button>
+<button type="button" class="close hidden">
+    <i class="uit uit-multiply"></i>
+</button>
+
             </div>
         </nav>
+
+
+
 
         <main>
             <div class="py-32 px-30">
@@ -171,7 +219,7 @@
 
                         <div class="rounded-xl w-2/3 overflow-hidden relative">
 
-                            <a href="#"
+                            <a href="icw-its.com"
                                 class="induk absolute text-bg-0 bg-black w-full h-full flex justify-center items-center opacity-0 translate-y-20 hover:translate-y-0 hover:opacity-80 font-bold text-3xl transform transition duration-300 scale-100 group-hover:scale-150">See
                                 This Project</a>
                             <img src="img/portoicw.png" alt="Project Indonesian Corossion Week"
@@ -194,7 +242,7 @@
 
                         <div class="rounded-xl w-2/3 overflow-hidden relative">
 
-                            <a href="#"
+                            <a href="surabayamun.com"
                                 class="absolute text-bg-0 bg-black w-full h-full flex justify-center items-center opacity-0 translate-y-20 hover:translate-y-0 hover:opacity-80 font-bold text-3xl transform transition duration-300">See
                                 This Project</a>
                             <img src="img/portosumun.png" alt="Project Indonesian Corossion Week">
@@ -234,6 +282,44 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script src="app.js"></script>
+
+
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                const close = document.querySelector('.close')
+                const open = document.querySelector('.open')
+                const navbar = document.querySelector('.bawah')
+          
+                open.addEventListener('click', () => {
+                  if (navbar.classList.contains('translate-y-full')) {
+                    navbar.classList.remove('translate-y-full');
+                    navbar.classList.add('translate-y-0');
+                  } 
+
+                  if (open.classList.contains('block')){
+                      open.classList.remove('block')
+                      open.classList.add('hidden')
+                      close.classList.remove('hidden')
+                      close.classList.add('block')
+                  }
+                })
+
+                close.addEventListener('click', () => {
+                    if (navbar.classList.contains('translate-y-0')) {
+                      navbar.classList.remove('translate-y-0');
+                      navbar.classList.add('translate-y-full');
+                    } 
+  
+                    if (close.classList.contains('block')){
+                        close.classList.remove('block')
+                        close.classList.add('hidden')
+                        open.classList.remove('hidden')
+                        open.classList.add('block')
+                    }
+                  })
+
+              })
+        </script>
 </body>
 
 </html>

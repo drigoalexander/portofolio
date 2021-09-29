@@ -28,7 +28,12 @@ module.exports = {
       pink: colors.pink,
       pi: ['#D90368'],
       bg: ['#F1E9DA'],
-      intro: ['#282828']
+      intro: ['#282828'],
+      brokenwhite: ['#FBF9FA'],
+      pink: ['#FD0054'],
+      morepink: ['#A80038'],
+      blackpick: ['#2B2024'],
+      pi2: ['#A90050']
     },
     spacing: {
       px: '1px',
