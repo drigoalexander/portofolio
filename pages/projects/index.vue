@@ -56,14 +56,14 @@ const cardDesc = ref([
     path: "surabaya-mun",
   },
   {
-    projects: "Nuxt Course",
+    projects: "Nuxt Insight",
     Description:
       "Webapp for e-learning focused on Nuxt, this project purposed is for learning nuxt in more depth",
     Tech: [
       "https://res.cloudinary.com/dxy6iowwg/image/upload/v1695909621/nuxt-logo-64E0472AA8-seeklogo.com_1_khqk5b.png",
       "https://res.cloudinary.com/dxy6iowwg/image/upload/v1695908212/tailwind-logo_m9zejr.png",
     ],
-    path: "nuxt-course",
+    path: "nuxt-insight",
   },
   {
     projects: "C-Loyal",
@@ -89,47 +89,47 @@ const cardDesc = ref([
 </script>
 
 <template>
-  <div
-    :class="{
-      '-translate-y-[120%]': modals === false,
-      'translate-y-0': modals === true,
-    }"
-    class="flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-950 shadow-xl text-neutral-200 left-[1%] top-[0.5%] z-20"
-  >
-    <span class="text-sm">
-      Hi! This Portofolio Website are still <br />
-      under development! Enjoy 😁 <br />
-      <br />
-      Oops, i forgot, use computer for better experience!! 🚀
-    </span>
-
-    <div class="relative w-auto group cursor-pointer" @click="modals = false">
-      <svg
-        width="20"
-        height="20"
-        class="stroke-2 group"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          class="rotate-0 origin-center group-hover:rotate-[45deg] duration-500 ease-in-out stroke-white dark:stroke-dark-bg"
-          d="M18 6L6 18"
-          stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-        <path
-          class="rotate-0 origin-center group-hover:rotate-[-45deg] duration-500 ease-in-out stroke-white dark:stroke-dark-bg"
-          d="M6 6L18 18"
-          stroke=""
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </div>
-  </div>
   <div class="flex w-full h-screen items-center justify-center">
+    <div
+      :class="{
+        '-translate-y-[120%]': modals === false,
+        'translate-y-0': modals === true,
+      }"
+      class="flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-950 shadow-xl text-neutral-200 left-[1%] top-[0.5%] z-20"
+    >
+      <span class="text-sm">
+        Hi! This Portofolio Website are still <br />
+        under development! Enjoy 😁 <br />
+        <br />
+        Oops, i forgot, use computer for better experience!! 🚀
+      </span>
+
+      <div class="relative w-auto group cursor-pointer" @click="modals = false">
+        <svg
+          width="20"
+          height="20"
+          class="stroke-2 group"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="rotate-0 origin-center group-hover:rotate-[45deg] duration-500 ease-in-out stroke-white dark:stroke-dark-bg"
+            d="M18 6L6 18"
+            stroke=""
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            class="rotate-0 origin-center group-hover:rotate-[-45deg] duration-500 ease-in-out stroke-white dark:stroke-dark-bg"
+            d="M6 6L18 18"
+            stroke=""
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </div>
     <div
       class="w-screen h-screen wrapper fixed z-0 top-0 left-0 gap-0"
       style="

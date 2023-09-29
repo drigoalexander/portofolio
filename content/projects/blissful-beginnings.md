@@ -5,7 +5,7 @@ description: "meta description of the page"
 
 # C Loyal - Loyalty Point Agent Web App
 
-[Source Code](https://github.com/drigoalexander/Drigo) | [Live Demo](https://www.nuxt-insight.vercel.app)
+[Source Code](https://github.com/drigoalexander/Drigo)
 
 > This Project Has Taken Down Due to Domain And Server Expired
 

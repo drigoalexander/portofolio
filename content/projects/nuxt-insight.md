@@ -3,11 +3,13 @@ title: "Nuxt Course Project"
 description: "meta description of the page"
 ---
 
-# Nuxt Course - Web App with Nuxt.js for E-Learning
+# Nuxt Insight - Web App with Nuxt.js for E-Learning
 
-[Source Code](https://github.com/drigoalexander/nuxt-course) | [Live Demo](https://www.nuxt-insight.vercel.app)
+[Source Code](https://github.com/drigoalexander/nuxt-course) | [Live Demo](https://nuxt-insight.vercel.app/)
 
 > This Project Still Under Development
+
+<iframe width="100%" style="aspect-ratio: 16/9;"src="https://www.youtube.com/embed/21Lji7_nyGI?si=7KEM-2CglzOhqHOw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 This project is all about building a feature-rich e-learning application that not only delivers high-quality educational content but also tackles the complexities of safeguarding this content to prevent unauthorized access. The focus here is on implementing robust protection measures to ensure that valuable educational resources are accessible only to authorized users.
 

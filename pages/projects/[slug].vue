@@ -12,7 +12,7 @@
           >
             <div class="mr-4 w-16 h-16 rounded-full overflow-hidden">
               <img
-                class="-translate-y-4"
+                class="-translate-y-12"
                 src="https://res.cloudinary.com/dxy6iowwg/image/upload/v1695915093/23hr97hgbou2qiva_zbwr9t.png"
                 alt="Drigo Alexander"
               />
