@@ -71,7 +71,7 @@ article :deep(h2) {
 }
 
 article :deep(a) {
-  @apply italic text-neutral-600 inline-block relative z-20 before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0  before:w-0 before:duration-300 before:ease-in-out before:bg-teal-300  before:absolute before:left-0;
+  @apply italic no-underline text-neutral-600 inline-block relative z-20 before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0  before:w-0 before:duration-300 before:ease-in-out before:bg-teal-300  before:absolute before:left-0;
 }
 
 article :deep(pre) {
