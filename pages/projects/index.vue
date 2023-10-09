@@ -95,7 +95,7 @@ const cardDesc = ref([
         '-translate-y-[120%]': modals === false,
         'translate-y-0': modals === true,
       }"
-      class="flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-950 shadow-xl text-neutral-200 left-[1%] top-[0.5%] z-20"
+      class="flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-100 dark:bg-neutral-950 shadow-xl text-neutral-950 dark:text-neutral-200 left-[1%] top-[0.5%] z-20"
     >
       <span class="text-sm">
         Hi! This Portofolio Website are still <br />
@@ -104,7 +104,7 @@ const cardDesc = ref([
         Oops, i forgot, use computer for better experience!! 🚀
       </span>
 
-      <div class="relative w-auto group cursor-pointer" @click="modals = false">
+      <div class="relative w-auto group cursor-none" @click="modals = false">
         <svg
           width="20"
           height="20"
@@ -114,14 +114,14 @@ const cardDesc = ref([
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            class="rotate-0 origin-center group-hover:rotate-[45deg] duration-500 ease-in-out stroke-white dark:stroke-dark-bg"
+            class="rotate-0 origin-center group-hover:rotate-[45deg] duration-500 ease-in-out stroke-neutral-950 dark:stroke-neutral-100"
             d="M18 6L6 18"
             stroke=""
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
-            class="rotate-0 origin-center group-hover:rotate-[-45deg] duration-500 ease-in-out stroke-white dark:stroke-dark-bg"
+            class="rotate-0 origin-center group-hover:rotate-[-45deg] duration-500 ease-in-out stroke-neutral-950 dark:stroke-neutral-100"
             d="M6 6L18 18"
             stroke=""
             stroke-linecap="round"
@@ -130,7 +130,7 @@ const cardDesc = ref([
         </svg>
       </div>
     </div>
-    <div
+    <!-- <div
       class="w-screen h-screen wrapper fixed z-0 top-0 left-0 gap-0"
       style="
          {
@@ -145,19 +145,21 @@ const cardDesc = ref([
         @click="animate(idx)"
         :key="el"
       ></div>
-    </div>
+    </div> -->
 
     <div
       style="font-family: MuseoModerno"
-      class="py-10 flex flex-col gap-10 w-full min-h-screen items-center justify-center z-10 px-[5%] bg-black"
+      class="py-10 flex flex-col gap-10 w-full min-h-screen items-center justify-center z-10 px-[5%] bg-neutral-100 dark:bg-black"
     >
       <header class="items-center flex w-full justify-end gap-4">
-        <h3 class="text-[2.5vw] uppercase text-white tracking-widest">
+        <h3
+          class="text-[2.5vw] uppercase text-neutral-950 dark:text-neutral-200 tracking-widest"
+        >
           Currated Works
         </h3>
 
         <svg
-          class="hover:rotate-90 duration-300 ease-in-out cursor-pointer"
+          class="hover:rotate-90 duration-300 ease-in-out cursor-none"
           @click="$router.push('/')"
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -168,12 +170,13 @@ const cardDesc = ref([
         >
           <g id="surface1">
             <path
+              class="stroke-neutral-950 dark:stroke-neutral-200"
               style="
                 fill: none;
                 stroke-width: 5;
                 stroke-linecap: butt;
                 stroke-linejoin: miter;
-                stroke: rgb(100%, 100%, 100%);
+
                 stroke-opacity: 1;
                 stroke-miterlimit: 4;
               "

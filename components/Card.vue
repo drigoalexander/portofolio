@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-[20vmax] rounded-md cursor-pointer aspect-[1/1.6] border-white relative border-[1px] group hover:border-transparent duration-500 ease-in-out"
+    class="w-[20vmax] rounded-md cursor-none aspect-[1/1.6] border-neutral-950 dark:border-white relative border-[1px] group hover:border-transparent dark:hover:border-transparent duration-500 ease-in-out"
   >
     <div
       class="before:z-0 before:content-[''] before:h-full before:w-full before:bg-[length:300%_300%] before:bg-[0%_0%] group-hover:before:bg-[100%_100%] group-hover:before:scale-105 before:duration-500 before:transition-all before:ease-out before:left-0 before:top-0 before:absolute before:bg-gradient-to-br before:from-transparent before:from-50% before:via-[#ffc371] before:to-[#ff5f6d]"
@@ -8,7 +8,7 @@
 
     <div
       style="font-family: Montserrat"
-      class="flex flex-col z-10 text-white p-6 lg:p-10 relative gap-4 h-full justify-between"
+      class="flex flex-col z-10 text-neutral-950 dark:text-neutral-200 p-6 lg:p-10 relative gap-4 h-full justify-between"
     >
       <div class="flex flex-col gap-4">
         <h4 class="font-bold text-[4vw] md:text-[2vw] lg:text-xl">

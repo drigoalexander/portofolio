@@ -1,14 +1,14 @@
 <template>
   <div>
     <main
-      class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white antialiased min-h-screen"
+      class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-neutral-100 dark:bg-neutral-950 antialiased min-h-screen"
     >
       <div class="flex justify-between px-4 mx-auto max-w-screen-xl flex-col">
         <div
           class="prose mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue"
         >
           <div
-            class="inline-flex items-center mr-3 text-sm text-gray-900 pb-20"
+            class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-neutral-100 pb-20"
           >
             <div class="mr-4 w-16 h-16 rounded-full overflow-hidden">
               <img
@@ -21,15 +21,15 @@
             <div>
               <NuxtLink
                 to="https://www.linkedin.com/in/drigo-alexander-9a36a01a8/"
-                class="text-xl font-bold text-gray-900"
+                class="text-xl font-bold text-gray-900 dark:text-neutral-200"
               >
                 Drigo Alexander
               </NuxtLink>
 
-              <p class="text-base text-gray-500">
+              <p class="text-base text-gray-500 dark:text-neutral-200">
                 Frontend Developer, Jakarta Indonesia
               </p>
-              <p class="text-base text-gray-500">
+              <p class="text-base text-gray-500 dark:text-neutral-200">
                 <time
                   pubdate=""
                   datetime="2023-09-28"
@@ -45,7 +45,7 @@
         </div>
         <NuxtLink
           @click="back"
-          class="text-xl mt-20 px-4 mx-auto max-w-screen-xl cursor-pointer hover:scale-105 duration-300 ease-in-out"
+          class="text-xl mt-20 px-4 mx-auto max-w-screen-xl cursor-none hover:scale-105 duration-300 ease-in-out text-neutral-950 dark:text-neutral-200"
           >Back
         </NuxtLink>
       </div>
@@ -54,6 +54,10 @@
 </template>
 
 <script setup>
+import { useToggle, useDark } from "@vueuse/core";
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 const router = useRouter();
 
 function back() {
@@ -63,15 +67,15 @@ function back() {
 
 <style scoped>
 article :deep(h1) {
-  @apply text-neutral-600 text-5xl font-bold pb-4 capitalize;
+  @apply text-neutral-600 dark:text-neutral-200 text-5xl font-bold pb-4 capitalize;
 }
 
 article :deep(h2) {
-  @apply text-neutral-600 text-2xl font-bold pb-4 capitalize;
+  @apply text-neutral-600 dark:text-neutral-200 text-2xl font-bold pb-4 capitalize;
 }
 
 article :deep(a) {
-  @apply italic no-underline text-neutral-600 inline-block relative z-20 before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0  before:w-0 before:duration-300 before:ease-in-out before:bg-teal-300  before:absolute before:left-0;
+  @apply italic no-underline dark:text-neutral-200 text-neutral-600 inline-block relative z-20 before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0  before:w-0 before:duration-300 before:ease-in-out before:bg-teal-300  before:absolute before:left-0;
 }
 
 article :deep(pre) {
