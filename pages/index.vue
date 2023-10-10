@@ -192,5 +192,3 @@ onMounted(() => {
   }, 5000);
 });
 </script>
-
-<style scoped></style>

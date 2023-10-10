@@ -5,14 +5,14 @@
     >
       <div class="flex justify-between px-4 mx-auto max-w-screen-xl flex-col">
         <div
-          class="prose mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue"
+          class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue"
         >
           <div
             class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-neutral-100 pb-20"
           >
             <div class="mr-4 w-16 h-16 rounded-full overflow-hidden">
               <img
-                class="-translate-y-12"
+                class="-translate-y-4"
                 src="https://res.cloudinary.com/dxy6iowwg/image/upload/v1695915093/23hr97hgbou2qiva_zbwr9t.png"
                 alt="Drigo Alexander"
               />
@@ -39,7 +39,7 @@
               </p>
             </div>
           </div>
-          <article>
+          <article class="">
             <ContentDoc />
           </article>
         </div>
@@ -65,36 +65,36 @@ function back() {
 }
 </script>
 
-<style scoped>
-article :deep(h1) {
+<style>
+article h1 {
   @apply text-neutral-600 dark:text-neutral-200 text-5xl font-bold pb-4 capitalize;
 }
 
-article :deep(h2) {
+article h2 {
   @apply text-neutral-600 dark:text-neutral-200 text-2xl font-bold pb-4 capitalize;
 }
 
-article :deep(a) {
-  @apply italic no-underline dark:text-neutral-200 text-neutral-600 inline-block relative z-20 before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0  before:w-0 before:duration-300 before:ease-in-out before:bg-teal-300  before:absolute before:left-0;
+article a {
+  @apply text-neutral-600 dark:text-neutral-200 italic no-underline  inline-block relative z-20 before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0  before:w-0 before:duration-300 before:ease-in-out before:bg-teal-300  before:absolute before:left-0;
 }
 
-article :deep(pre) {
-  @apply p-10  bg-[#242526] rounded-md text-white my-10 overflow-auto;
+article pre {
+  @apply text-neutral-600 dark:text-neutral-200 p-10  bg-[#242526] rounded-md  my-10 overflow-auto;
 }
 
-article :deep(p) {
-  @apply text-neutral-500 py-4;
+article p {
+  @apply text-neutral-600 dark:text-neutral-200  py-4;
 }
 
-article :deep(blockquote) {
-  @apply text-xl font-bold border-t-[1px] border-b-[1px] text-center text-green-300 my-4;
+article blockquote {
+  @apply text-neutral-600 dark:text-neutral-200 text-xl font-bold border-t-[1px] border-b-[1px] text-center text-green-300 my-4;
 }
 
-article :deep(ol) {
-  @apply list-decimal space-y-4 py-6;
+article ol {
+  @apply text-neutral-600 dark:text-neutral-200 list-decimal space-y-4 py-6;
 }
 
-article :deep(ol li) {
+article ol li {
   @apply underline underline-offset-1;
 }
 </style>
