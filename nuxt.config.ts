@@ -1,4 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+const url = import.meta.env.PROD;
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
@@ -9,6 +10,11 @@ export default defineNuxtConfig({
       theme: "github-dark",
     },
     documentDriven: true,
+  },
+  runtimeConfig: {
+    public: {
+      url,
+    },
   },
   modules: [
     "@nuxtjs/tailwindcss",
