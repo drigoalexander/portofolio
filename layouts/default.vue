@@ -15,6 +15,9 @@
 </template>
 
 <script setup>
+import { useToggle, useDark } from "@vueuse/core";
+
+const isDark = useDark();
 const X = ref(0);
 const Y = ref(0);
 const mappedMouseX = ref(0);

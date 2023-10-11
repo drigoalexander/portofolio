@@ -38,6 +38,51 @@
       style="font-family: MuseoModerno"
       class="bg-neutral-100 dark:bg-gray-950 text-black w-full h-screen relative z-10 flex flex-col justify-between py-24"
     >
+      <div
+        style="font-family: Montserrat"
+        :class="{
+          'translate-y-[120%]': !modals,
+          'translate-y-0': modals,
+        }"
+        class="left-[1%] bottom-[1%] flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-100 dark:bg-neutral-950 shadow-xl text-neutral-950 dark:text-neutral-200 z-20"
+      >
+        <span class="text-sm">
+          Searching for developer to help you build your website? <br />
+          Well, maybe i can help you 😁 <br />
+          <br />
+          Go checkout to my
+          <NuxtLink :to="tenantAgency" class="bg-gradient2 font-bold"
+            >agency!!</NuxtLink
+          >
+          🚀
+        </span>
+
+        <div class="relative w-auto group cursor-none" @click="modals = false">
+          <svg
+            width="20"
+            height="20"
+            class="stroke-2 group"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="rotate-0 origin-center group-hover:rotate-[45deg] duration-500 ease-in-out stroke-neutral-950 dark:stroke-neutral-100"
+              d="M18 6L6 18"
+              stroke=""
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              class="rotate-0 origin-center group-hover:rotate-[-45deg] duration-500 ease-in-out stroke-neutral-950 dark:stroke-neutral-100"
+              d="M6 6L18 18"
+              stroke=""
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
       <div class="text-2xl flex justify-between px-[5%] items-center w-full">
         <svg
           class="fill-black dark:fill-white"
@@ -62,7 +107,7 @@
         </svg>
         <DarkSwitch />
       </div>
-      <NuxtLink to="/projects/">
+      <NuxtLink to="/projects">
         <div
           class="group cursor-none relative w-full font-bold text-[15vw] pl-[10vw] border-t-2 text-neutral-800 dark:text-zinc-300 dark:border-zinc-300 border-b-2 border-neutral-800 z-10"
         >
@@ -81,7 +126,7 @@
         <div class="flex gap-4 items-center">
           <NuxtLink to="https://github.com/drigoalexander" target="_blank">
             <svg
-              class="cursor-none fill-neutral-800 dark:fill-zinc-300"
+              class="cursor-none fill-neutral-800 dark:fill-zinc-300 hover:scale-125 duration-300 ease-in-out"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               width="30px"
@@ -107,7 +152,7 @@
             target="_blank"
           >
             <svg
-              class="cursor-none fill-neutral-800 dark:fill-zinc-300"
+              class="cursor-none fill-neutral-800 dark:fill-zinc-300 hover:scale-125 duration-300 ease-in-out"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 30 30"
               width="30px"
@@ -125,11 +170,14 @@
 </template>
 
 <script setup>
-import { useSessionStorage, useDark, useToggle } from "@vueuse/core";
+import { useBuildTenantUrl } from "~/services/url";
+import { useSessionStorage } from "@vueuse/core";
+
+const tenantAgency = useBuildTenantUrl("agency");
 
 const { $anime } = useNuxtApp();
 const isVisited = useSessionStorage("isVisited", false);
-
+const modals = ref(false);
 onMounted(() => {
   if (isVisited.value === false) {
     $anime.set("#surface2 path", {
@@ -186,7 +234,9 @@ onMounted(() => {
       },
     });
   }
-
+  setTimeout(() => {
+    modals.value = true;
+  }, 300);
   setTimeout(() => {
     isVisited.value = true;
   }, 5000);

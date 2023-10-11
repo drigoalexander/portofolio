@@ -1,50 +1,4 @@
 <script setup>
-const { $anime } = useNuxtApp();
-
-const modals = ref(false);
-const columns = ref(1);
-const rows = ref(1);
-const widthRec = ref(50);
-const heightRec = ref(50);
-const themes = ref(["#f5f5f5", "#171717"]);
-let themeIdx = ref(0);
-
-onMounted(() => {
-  columns.value = Math.floor(document.body.clientWidth / widthRec.value);
-  rows.value = Math.floor(document.body.clientHeight / heightRec.value);
-
-  window.addEventListener("resize", () => {
-    columns.value = Math.floor(document.body.clientWidth / widthRec.value);
-    rows.value = Math.floor(document.body.clientHeight / heightRec.value);
-  });
-
-  setTimeout((modals.value = true), 5000);
-});
-
-const ComputedColumns = computed(() => {
-  return columns.value;
-});
-
-const ComputedRows = computed(() => {
-  return rows.value;
-});
-
-function animate(idx) {
-  themeIdx.value++;
-
-  if (themeIdx.value === 2) {
-    themeIdx.value = 0;
-  }
-  $anime({
-    targets: ".tiles",
-    backgroundColor: themes.value[themeIdx.value],
-    delay: $anime.stagger(30, {
-      grid: [columns.value, rows.value],
-      from: idx,
-    }),
-  });
-}
-
 const cardDesc = ref([
   {
     projects: "Surabaya MUN",
@@ -90,62 +44,7 @@ const cardDesc = ref([
 
 <template>
   <div class="flex w-full h-screen items-center justify-center">
-    <div
-      :class="{
-        '-translate-y-[120%]': modals === false,
-        'translate-y-0': modals === true,
-      }"
-      class="flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-100 dark:bg-neutral-950 shadow-xl text-neutral-950 dark:text-neutral-200 left-[1%] top-[0.5%] z-20"
-    >
-      <span class="text-sm">
-        Hi! This Portofolio Website are still <br />
-        under development! Enjoy 😁 <br />
-        <br />
-        Oops, i forgot, use computer for better experience!! 🚀
-      </span>
-
-      <div class="relative w-auto group cursor-none" @click="modals = false">
-        <svg
-          width="20"
-          height="20"
-          class="stroke-2 group"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            class="rotate-0 origin-center group-hover:rotate-[45deg] duration-500 ease-in-out stroke-neutral-950 dark:stroke-neutral-100"
-            d="M18 6L6 18"
-            stroke=""
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            class="rotate-0 origin-center group-hover:rotate-[-45deg] duration-500 ease-in-out stroke-neutral-950 dark:stroke-neutral-100"
-            d="M6 6L18 18"
-            stroke=""
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </div>
-    </div>
-    <!-- <div
-      class="w-screen h-screen wrapper fixed z-0 top-0 left-0 gap-0"
-      style="
-         {
-          grid-template-columns: repeat(var(--col), 1fr);
-          grid-template-rows: repeat(var(--row), 1fr);
-        }
-      "
-    >
-      <div
-        class="aspect-square w-[55px] tiles"
-        v-for="(el, idx) in ComputedColumns * ComputedRows"
-        @click="animate(idx)"
-        :key="el"
-      ></div>
-    </div> -->
+    <ModalsCard :position="'top-left'" />
 
     <div
       style="font-family: MuseoModerno"

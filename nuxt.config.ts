@@ -4,12 +4,23 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
+  content: {
+    highlight: {
+      theme: "github-dark",
+    },
+    documentDriven: true,
+  },
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxt/content",
     "@hypernym/nuxt-anime",
     "@nuxtjs/google-fonts",
+    "~/src/module",
   ],
+  multiTenancy: {
+    rootDomains: ["drigoalexander.local", "drigoalexander.vercel.app"],
+    tenantDynamicRoute: "site",
+  },
   anime: {
     provide: true,
     composables: true,
