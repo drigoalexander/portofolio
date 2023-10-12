@@ -3,7 +3,9 @@
     class="gap-4 pb-16 lg:pb-24 bg-neutral-100 dark:bg-neutral-950 antialiased min-h-screen mx-auto max-w-screen-5xl"
   >
     <main class="relative">
-      <aside class="py-6 sticky ml-16 top-1/4 flex flex-col w-fit">
+      <aside
+        class="py-6 sticky ml-0 hidden lg:ml-16 lg:flex top-1/4 flex-col w-fit"
+      >
         <span class="text-xl font-semibold">Table of Content</span>
         <ul class="flex flex-col gap-2 pt-6">
           <NuxtLink class="relative group" v-for="el in toc.links"
@@ -20,7 +22,7 @@
           >Back
         </NuxtLink>
       </aside>
-      <div class="flex justify-between px-4 mx-auto flex-col ml-64">
+      <div class="flex justify-between px-4 mx-auto flex-col ml-0 md:ml-64">
         <div class="mx-auto w-full max-w-5xl">
           <div
             class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-neutral-100 pb-20"

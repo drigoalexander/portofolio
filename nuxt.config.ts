@@ -2,9 +2,7 @@ const url = import.meta.env.PROD;
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  app: {
-    pageTransition: { name: "page", mode: "out-in" },
-  },
+
   content: {
     highlight: {
       theme: "github-dark",

@@ -14,6 +14,15 @@ useHead({
       : "Drigo Alexander - Personal Portofolio";
   },
 });
+
+onMounted(() => {
+  const nuxtApp = useNuxtApp();
+  const browserName = navigator.userAgent.toLowerCase();
+  const os = ["mac", "win", "linux"].some((keyword) =>
+    browserName.includes(keyword)
+  );
+  nuxtApp.provide("isComputer", os);
+});
 </script>
 
 <style>
