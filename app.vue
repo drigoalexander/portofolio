@@ -18,7 +18,7 @@ useHead({
 onMounted(() => {
   const nuxtApp = useNuxtApp();
   const browserName = navigator.userAgent.toLowerCase();
-  const os = ["mac", "win", "linux"].some((keyword) =>
+  const os = ["macintosh", "windows"].some((keyword) =>
     browserName.includes(keyword)
   );
   nuxtApp.provide("isComputer", os);

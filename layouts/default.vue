@@ -21,15 +21,16 @@ import { useToggle, useDark } from "@vueuse/core";
 const nuxtApp = useNuxtApp();
 const isDark = useDark();
 
-const position = ref("fixed");
-const display = ref("block");
+const position = ref("");
+const display = ref("");
 const X = ref(0);
 const Y = ref(0);
 const mappedMouseX = ref(0);
 // const mouseClicked = ref(false);
 onMounted(() => {
-  console.log(nuxtApp.$isComputer);
   if (nuxtApp.$isComputer) {
+    position.value = "fixed";
+    display.value = "block";
     window.onmousemove = (event) => {
       const rec = document.getElementById("rectangle");
       const windowWidth = window.innerWidth;
