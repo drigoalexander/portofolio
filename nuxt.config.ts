@@ -20,6 +20,7 @@ export default defineNuxtConfig({
     "@hypernym/nuxt-anime",
     "@nuxtjs/google-fonts",
     "nuxt-multi-tenancy",
+    "nuxt-viewport",
   ],
   multiTenancy: {
     rootDomains: ["drigoalexander.local", "drigoalexander.vercel.app"],

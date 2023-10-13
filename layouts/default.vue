@@ -31,6 +31,7 @@ onMounted(() => {
   console.log(nuxtApp.$isComputer);
   if (nuxtApp.$isComputer) {
     window.onmousemove = (event) => {
+      const rec = document.getElementById("rectangle");
       const windowWidth = window.innerWidth;
       mappedMouseX.value = (event.clientX / windowWidth) * 1440;
       X.value = event.clientX;

@@ -1,10 +1,11 @@
 <template>
   <div
-    class="gap-4 pb-16 lg:pb-24 bg-neutral-100 dark:bg-neutral-950 antialiased min-h-screen mx-auto max-w-screen-5xl"
+    class="gap-4 pb-16 pt-14 lg:pt-0 lg:pb-24 bg-neutral-100 dark:bg-neutral-950 antialiased min-h-screen mx-auto max-w-screen-5xl"
   >
     <main class="relative">
       <aside
-        class="py-6 sticky ml-0 hidden lg:ml-16 lg:flex top-1/4 flex-col w-fit"
+        v-if="viewport.isGreaterThan('desktop')"
+        class="py-6 sticky ml-0 lg:ml-16 flex top-1/4 flex-col w-fit"
       >
         <span class="text-xl font-semibold">Table of Content</span>
         <ul class="flex flex-col gap-2 pt-6">
@@ -22,7 +23,7 @@
           >Back
         </NuxtLink>
       </aside>
-      <div class="flex justify-between px-4 mx-auto flex-col ml-0 md:ml-64">
+      <div class="flex justify-between px-4 mx-auto flex-col ml-0 lg:ml-64">
         <div class="mx-auto w-full max-w-5xl">
           <div
             class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-neutral-100 pb-20"
@@ -56,7 +57,7 @@
               </p>
             </div>
           </div>
-          <article class="w-full">
+          <article class="w-full text-justify px-4 md:px-8">
             <ContentDoc />
             <hr class="my-8" />
             <div class="grid gap-8 sm:grid-cols-2 text-white">
@@ -69,7 +70,7 @@
                   'col-start-1': next,
                   'col-span-1': next,
                 }"
-                class="cursor-none block px-6 py-8 border not-prose rounded-lg border-gray-200 dark:border-gray-800 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 group"
+                class="max-sm:col-span-2 cursor-none block px-6 py-8 border not-prose rounded-lg border-gray-200 dark:border-gray-800 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 group"
                 ><div
                   class="inline-flex items-center rounded-full p-1.5 bg-gray-100 dark:bg-gray-800 group-hover:bg-primary/10 ring-1 ring-gray-300 dark:ring-gray-700 mb-4 group-hover:ring-primary/50"
                 >
@@ -111,7 +112,7 @@
                   'col-start-2': prev,
                   'col-span-1': prev,
                 }"
-                class="cursor-none block px-6 py-8 border not-prose rounded-lg border-gray-200 dark:border-gray-800 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 group"
+                class="max-sm:col-span-2 cursor-none block px-6 py-8 border not-prose rounded-lg border-gray-200 dark:border-gray-800 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 group"
                 ><div
                   class="inline-flex items-center rounded-full p-1.5 bg-gray-100 dark:bg-gray-800 group-hover:bg-primary/10 ring-1 ring-gray-300 dark:ring-gray-700 mb-4 group-hover:ring-primary/50"
                 >
@@ -144,6 +145,13 @@
                   {{ next?.description }}
                 </p></NuxtLink
               >
+              <NuxtLink
+                v-if="viewport.isLessThan('desktop')"
+                style="font-family: MuseoModerno"
+                to="/projects"
+                class="text-xl pb-2 mt-20 cursor-none before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0 before:w-0 before:duration-300 before:ease-in-out before:bg-gradient-to-r before:from-gradient1 before:to-gradient2 before:absolute before:left-0 text-neutral-950 dark:text-neutral-200"
+                >Back to projects page
+              </NuxtLink>
             </div>
           </article>
         </div>
@@ -153,6 +161,7 @@
 </template>
 
 <script setup>
+const viewport = useViewport();
 const route = useRoute();
 const { toc } = useContent();
 const [prev, next] = await queryContent().findSurround(route.fullPath);

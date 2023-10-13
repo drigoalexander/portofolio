@@ -121,7 +121,7 @@
         class="text-[5vw] lg:text-xl flex flex-col lg:flex-row justify-between px-[5%] items-start lg:pt-0 space-y-4 lg:items-center w-full"
       >
         <p class="text-neutral-800 dark:text-zinc-300">
-          Drigo Alexander <br />Portofolio
+          Drigo Alexander <br />Portofolio {{ browserName }}
         </p>
         <div class="flex gap-4 items-center">
           <NuxtLink to="https://github.com/drigoalexander" target="_blank">
@@ -173,6 +173,7 @@
 import { useBuildTenantUrl } from "~/services/url";
 import { useSessionStorage } from "@vueuse/core";
 
+const browserName = navigator.userAgent.toLowerCase();
 const tenantAgency = useBuildTenantUrl("agency");
 
 const { $anime } = useNuxtApp();
