@@ -173,13 +173,13 @@
 import { useBuildTenantUrl } from "~/services/url";
 import { useSessionStorage } from "@vueuse/core";
 
-const browserName = navigator.userAgent.toLowerCase();
 const tenantAgency = useBuildTenantUrl("agency");
 
 const { $anime } = useNuxtApp();
 const isVisited = useSessionStorage("isVisited", false);
 const modals = ref(false);
 onMounted(() => {
+  const browserName = navigator.userAgent.toLowerCase();
   if (isVisited.value === false) {
     $anime.set("#surface2 path", {
       strokeDashoffset: $anime.setDashoffset,
