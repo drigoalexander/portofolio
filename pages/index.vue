@@ -121,7 +121,7 @@
         class="text-[5vw] lg:text-xl flex flex-col lg:flex-row justify-between px-[5%] items-start lg:pt-0 space-y-4 lg:items-center w-full"
       >
         <p class="text-neutral-800 dark:text-zinc-300">
-          Drigo Alexander <br />Portofolio {{ browserName }}
+          Drigo Alexander <br />Portofolio
         </p>
         <div class="flex gap-4 items-center">
           <NuxtLink to="https://github.com/drigoalexander" target="_blank">
@@ -180,7 +180,7 @@ const isVisited = useSessionStorage("isVisited", false);
 const modals = ref(false);
 onMounted(() => {
   browserName.value = navigator.userAgent.toLowerCase();
-  console.log(browserName.value);
+
   if (isVisited.value === false) {
     $anime.set("#surface2 path", {
       strokeDashoffset: $anime.setDashoffset,
