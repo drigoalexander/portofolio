@@ -1,19 +1,22 @@
 <template>
   <div
     :class="{
-      '-translate-y-[120%]': !modals && position == 'top-left',
-      'translate-y-0': modals && position == 'top-left',
+      '-translate-y-[120%]': !modals,
+      'translate-y-0': modals,
     }"
     class="left-[1%] top-[0.5%] flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-100 dark:bg-neutral-950 shadow-xl text-neutral-950 dark:text-neutral-200 z-20"
   >
-    <span class="text-sm">
-      Hi! This Portofolio Website are still <br />
-      under development! Enjoy 😁 <br />
-      <br />
+    <span class="text-sm leading-5 tracking-wide">
+      Hi! This Portofolio Website are still <br>
+      under development! Enjoy 😁 <br>
+      <br>
       Oops, i forgot, use computer for better experience!! 🚀
     </span>
 
-    <div class="relative w-auto group cursor-none" @click="modals = false">
+    <div
+      class="relative w-auto group cursor-none"
+      @click="modals = false"
+    >
       <svg
         width="20"
         height="20"
@@ -46,6 +49,7 @@ const modals = ref(false);
 defineProps({
   position: {
     type: String,
+    default: "top-left",
     validator: (positionCard) =>
       ["top-left", "top-right", "bottom-left", "bottom-right"].includes(
         positionCard

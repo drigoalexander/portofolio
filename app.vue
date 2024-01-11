@@ -30,4 +30,12 @@ html,
 body {
   cursor: none;
 }
+
+body {
+  font-family: "Open Sans";
+}
+
+#modals {
+  font-family: MuseoModerno !important;
+}
 </style>

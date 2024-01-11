@@ -1,32 +1,33 @@
 <template>
-  <div
-    class="w-full fixed top-0 h-[10px] bg-gradient-to-r from-gradient1 to-gradient2 z-20"
-  ></div>
+  <div>
+    <div
+      class="w-full fixed top-0 h-[10px] bg-gradient-to-r from-gradient1 to-gradient2 z-20"
+    />
 
-  <div
-    id="rectangle"
-    :style="`left: ${X}px; top: ${Y}px; rotate: ${mappedMouseX}deg; position: ${position}; display: ${display}`"
-    class="origin-top-left pointer-events-none w-8 aspect-square border-[1.5px] border-gradient1 z-[999] duration-300 ease-in-out transition -translate-x-1/2 -translate-y-1/2"
-  ></div>
-  <div
-    id="dot"
-    :style="`left: ${X}px; top: ${Y}px; position: ${position}; display: ${display}`"
-    class="pointer-events-none w-1.5 aspect-square rounded-full bg-neutral-700 dark:bg-white left-1/2 -translate-x-1/2 -translate-y-1/2 dot-tracker z-[999] ease-in-out transition duration-300"
-  ></div>
-  <NuxtPage />
+    <div
+      id="rectangle"
+      :style="`left: ${X}px; top: ${Y}px; rotate: ${mappedMouseX}deg; position: ${position}; display: ${display}`"
+      class="origin-top-left pointer-events-none w-8 aspect-square border-[1.5px] border-gradient1 z-[999] duration-300 ease-in-out transition -translate-x-1/2 -translate-y-1/2"
+    />
+    <div
+      id="dot"
+      :style="`left: ${X}px; top: ${Y}px; position: ${position}; display: ${display}`"
+      class="pointer-events-none w-1.5 aspect-square rounded-full bg-neutral-700 dark:bg-white left-1/2 -translate-x-1/2 -translate-y-1/2 dot-tracker z-[999] ease-in-out transition duration-300"
+    />
+    <NuxtPage />
+  </div>
 </template>
 
 <script setup>
-import { useToggle, useDark } from "@vueuse/core";
+// import { useToggle, useDark } from "@vueuse/core";
 const nuxtApp = useNuxtApp();
-const isDark = useDark();
 
 const position = ref("");
 const display = ref("");
 const X = ref(0);
 const Y = ref(0);
 const mappedMouseX = ref(0);
-// const mouseClicked = ref(false);
+
 onMounted(() => {
   if (nuxtApp.$isComputer) {
     position.value = "fixed";

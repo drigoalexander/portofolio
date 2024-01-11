@@ -35,24 +35,25 @@
       </svg>
     </div>
     <div
-      style="font-family: MuseoModerno"
+      id="modals"
       class="bg-neutral-100 dark:bg-gray-950 text-black w-full h-screen relative z-10 flex flex-col justify-between py-24"
     >
       <div
-        style="font-family: Montserrat"
         :class="{
           'translate-y-[120%]': !modals,
           'translate-y-0': modals,
         }"
-        class="left-[1%] bottom-[1%] flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-100 dark:bg-neutral-950 shadow-xl text-neutral-950 dark:text-neutral-200 z-20"
+        class="leading-5 tracking-wide left-[1%] bottom-[1%] flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-100 dark:bg-neutral-950 shadow-xl text-neutral-950 dark:text-neutral-200 z-20"
       >
         <span class="text-sm">
           Searching for developer to help you build your website? <br />
           Well, maybe i can help you 😁 <br />
           <br />
-          Go checkout to my
-          <NuxtLink :to="tenantAgency" class="bg-gradient2 font-bold"
-            >agency!!</NuxtLink
+          Discuss with me
+          <NuxtLink
+            to="/freelance"
+            class="bg-gradient2 font-bold text-black px-2 capitalize"
+            >here!!</NuxtLink
           >
           🚀
         </span>
@@ -113,7 +114,7 @@
         >
           <div
             class="before:content-[''] before:h-full before:left-0 top-0 before:bg-gradient-to-r before:from-transparent before:to-[#ffc371] before:via-[#ff5f6d] before:w-[0%] before:group-hover:w-full before:absolute before:-z-10 before:ease-out before:duration-500 before:transition-all"
-          ></div>
+          />
           Projects
         </div>
       </NuxtLink>
@@ -170,10 +171,8 @@
 </template>
 
 <script setup>
-import { useBuildTenantUrl } from "~/services/url";
 import { useSessionStorage } from "@vueuse/core";
 
-const tenantAgency = useBuildTenantUrl("agency");
 const browserName = ref("");
 const { $anime } = useNuxtApp();
 const isVisited = useSessionStorage("isVisited", false);
@@ -195,7 +194,7 @@ onMounted(() => {
         return i * 250;
       },
       direction: "normal",
-      complete: function (anim) {
+      complete: function () {
         $anime({
           targets: "#surface2 path",
           strokeDashoffset: [$anime.setDashoffset, 0],
@@ -205,7 +204,7 @@ onMounted(() => {
             return i * 250;
           },
           direction: "normal",
-          complete: function (anim) {
+          complete: function () {
             const endAnimation = $anime({
               targets: "#surface2 path",
               fillOpacity: 1,

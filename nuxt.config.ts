@@ -1,5 +1,3 @@
-const url = import.meta.env.PROD;
-
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
@@ -9,11 +7,7 @@ export default defineNuxtConfig({
     },
     documentDriven: true,
   },
-  runtimeConfig: {
-    public: {
-      url,
-    },
-  },
+
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxt/content",
@@ -21,6 +15,7 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "nuxt-multi-tenancy",
     "nuxt-viewport",
+    "@nuxtjs/eslint-module",
   ],
   multiTenancy: {
     rootDomains: ["drigoalexander.local", "drigoalexander.vercel.app"],
@@ -32,8 +27,12 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
-      MuseoModerno: true,
-      Montserrat: true,
+      MuseoModerno: {
+        wght: "200..900",
+      },
+      "Open Sans": {
+        wght: "200..900",
+      },
     },
     preload: true,
     preconnect: true,

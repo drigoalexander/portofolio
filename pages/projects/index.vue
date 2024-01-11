@@ -47,7 +47,7 @@ const cardDesc = ref([
     <ModalsCard :position="'top-left'" />
 
     <div
-      style="font-family: MuseoModerno"
+      style="font-family: MuseoModerno, sans-serif"
       class="py-10 flex flex-col gap-10 w-full min-h-screen items-center justify-center z-10 px-[5%] bg-neutral-100 dark:bg-black"
     >
       <header class="items-center flex w-full justify-end gap-4">
@@ -59,13 +59,13 @@ const cardDesc = ref([
 
         <svg
           class="hover:rotate-90 duration-300 ease-in-out cursor-none"
-          @click="$router.push('/')"
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           width="25px"
           height="31px"
           viewBox="0 0 25 30"
           version="1.1"
+          @click="$router.push('/')"
         >
           <g id="surface1">
             <path
@@ -89,11 +89,15 @@ const cardDesc = ref([
       <main
         class="flex lg:flex-row justify-evenly items-center w-full gap-4 flex-wrap"
       >
-        <NuxtLink v-for="(el, idx) in cardDesc" :to="`/projects/${el.path}`">
-          <Card
-            :Projects="el.projects"
-            :Description="el.Description"
-            :Tech="el.Tech"
+        <NuxtLink
+          v-for="(el, idx) in cardDesc"
+          :key="idx"
+          :to="`/projects/${el.path}`"
+        >
+          <ProjectCard
+            :projects="el.projects"
+            :description="el.Description"
+            :tech-list="el.Tech"
           />
         </NuxtLink>
       </main>
@@ -106,5 +110,9 @@ const cardDesc = ref([
   display: grid;
   grid-template-columns: repeat(v-bind(ComputedColumns), 1fr);
   grid-template-rows: repeat(v-bind(ComputedRows), 1fr);
+}
+
+main {
+  font-family: "Open Sans";
 }
 </style>
