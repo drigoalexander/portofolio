@@ -7,12 +7,10 @@
     <div class="flex flex-col gap-2 items-start">
       <span
         class="text-black dark:text-white font-semibold text-[clamp(1rem,4vw+1rem,1.25rem) ]"
-        ><slot name="header"></slot
-      ></span>
+      ><slot name="header" /></span>
       <span
         class="text-[#8A8A8E] text-[clamp(0.875rem,4vw+1rem,1rem)) font-light] group-hover:text-[#989899] ease-in-out duration-300"
-        ><slot name="paragraph"></slot
-      ></span>
+      ><slot name="paragraph" /></span>
     </div>
 
     <svg

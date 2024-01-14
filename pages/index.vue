@@ -46,19 +46,21 @@
         class="leading-5 tracking-wide left-[1%] bottom-[1%] flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-100 dark:bg-neutral-950 shadow-xl text-neutral-950 dark:text-neutral-200 z-20"
       >
         <span class="text-sm">
-          Searching for developer to help you build your website? <br />
-          Well, maybe i can help you 😁 <br />
-          <br />
+          Searching for developer to help you build your website? <br>
+          Well, maybe i can help you 😁 <br>
+          <br>
           Discuss with me
           <NuxtLink
             to="/freelance"
             class="bg-gradient2 font-bold text-black px-2 capitalize"
-            >here!!</NuxtLink
-          >
+          >here!!</NuxtLink>
           🚀
         </span>
 
-        <div class="relative w-auto group cursor-none" @click="modals = false">
+        <div
+          class="relative w-auto group cursor-none"
+          @click="modals = false"
+        >
           <svg
             width="20"
             height="20"
@@ -122,10 +124,13 @@
         class="text-[5vw] lg:text-xl flex flex-col lg:flex-row justify-between px-[5%] items-start lg:pt-0 space-y-4 lg:items-center w-full"
       >
         <p class="text-neutral-800 dark:text-zinc-300">
-          Drigo Alexander <br />Portofolio
+          Drigo Alexander <br>Portofolio
         </p>
         <div class="flex gap-4 items-center">
-          <NuxtLink to="https://github.com/drigoalexander" target="_blank">
+          <NuxtLink
+            to="https://github.com/drigoalexander"
+            target="_blank"
+          >
             <svg
               class="cursor-none fill-neutral-800 dark:fill-zinc-300 hover:scale-125 duration-300 ease-in-out"
               xmlns="http://www.w3.org/2000/svg"

@@ -39,7 +39,7 @@
                 class="-translate-y-4"
                 src="https://res.cloudinary.com/dxy6iowwg/image/upload/v1695915093/23hr97hgbou2qiva_zbwr9t.png"
                 alt="Drigo Alexander"
-              />
+              >
             </div>
 
             <div>
@@ -58,14 +58,13 @@
                   pubdate=""
                   datetime="2023-09-28"
                   title="February 8th, 2022"
-                  >28 September 2023</time
-                >
+                >28 September 2023</time>
               </p>
             </div>
           </div>
           <article class="w-full text-justify px-4 md:px-8">
             <ContentDoc />
-            <hr class="my-8" />
+            <hr class="my-8">
             <div class="grid gap-8 sm:grid-cols-2 text-white">
               <NuxtLink
                 v-if="prev"
@@ -83,20 +82,20 @@
                 >
                   <span
                     class="w-5 h-5 text-gray-900 dark:text-white group-hover:text-primary flex items-center justify-center"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-6 h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
-                      />
-                    </svg>
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+                    />
+                  </svg>
                   </span>
                 </div>
                 <p
@@ -126,20 +125,20 @@
                 >
                   <span
                     class="w-5 h-5 text-gray-900 dark:text-white group-hover:text-primary flex items-center justify-center"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-6 h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                      />
-                    </svg>
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                    />
+                  </svg>
                   </span>
                 </div>
                 <p

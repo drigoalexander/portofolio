@@ -7,7 +7,9 @@
     >
       <div class="flex gap-10 text-black">
         {{ fluidFont(18, 24) }}
-        <button @click.prevent="copyClipboard">copy</button>
+        <button @click.prevent="copyClipboard">
+          copy
+        </button>
       </div>
 
       <!-- <LinkCard>

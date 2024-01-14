@@ -1,13 +1,12 @@
 <template>
   <div
-    @click="active = !active"
     class="relative bg-white dark:bg-black rounded-lg duration-300 ease-in-out flex w-full max-w-2xl items-start justify-between p-4 group"
+    @click="active = !active"
   >
     <div class="flex flex-col gap-2">
       <span
         class="ease-in-out capitalize duration-300 transition-all text-[clamp(0.875rem,4vw+1rem,1.125rem)] font-semibold leading-5 tracking-wide"
-        >This is accordion header</span
-      >
+      >This is accordion header</span>
       <Transition name="list">
         <span
           v-if="active"
@@ -22,7 +21,7 @@
           'w-0': !active,
         }"
         class="ease-in-out duration-300 absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-gradient1 to-gradient2"
-      ></div>
+      />
     </div>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +41,7 @@
 </template>
 
 <script setup>
-let active = ref(false);
+const active = ref(false);
 </script>
 
 <style scoped>

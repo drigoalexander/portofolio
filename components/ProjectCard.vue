@@ -29,7 +29,7 @@
           class="w-1/5"
           :src="el"
           alt=""
-        />
+        >
       </div>
     </div>
   </div>
