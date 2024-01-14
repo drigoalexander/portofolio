@@ -13,12 +13,12 @@
         <h4
           class="font-semibold text-[4vw] md:text-[2vw] lg:text-xl leading-6 tracking-widest"
         >
-          {{ Projects }}
+          {{ projects }}
         </h4>
         <p
           class="font-light text-[2vw] md:text-[1.5vw] lg:text-base leading-5 tracking-wider"
         >
-          {{ Description }}
+          {{ description }}
         </p>
       </div>
 
@@ -29,7 +29,7 @@
           class="w-1/5"
           :src="el"
           alt=""
-        >
+        />
       </div>
     </div>
   </div>
