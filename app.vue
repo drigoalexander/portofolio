@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="bg-black min-h-screen">
     <NuxtLayout>
       <LazyNuxtPage />
     </NuxtLayout>
+    <UNotifications color="rose" />
   </div>
 </template>
 
@@ -29,13 +30,5 @@ onMounted(() => {
 html,
 body {
   cursor: none;
-}
-
-body {
-  font-family: "Open Sans";
-}
-
-#modals {
-  font-family: MuseoModerno !important;
 }
 </style>

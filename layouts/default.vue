@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="w-full fixed top-0 h-[10px] bg-gradient-to-r from-gradient1 to-gradient2 z-20"
+      class="w-full absolute top-0 h-[10px] bg-gradient-to-r from-gradient1 to-gradient2 z-20"
     />
 
     <div
@@ -15,6 +15,7 @@
       class="pointer-events-none w-1.5 aspect-square rounded-full bg-neutral-700 dark:bg-white left-1/2 -translate-x-1/2 -translate-y-1/2 dot-tracker z-[999] ease-in-out transition duration-300"
     />
     <NuxtPage />
+    <FooterLayout />
   </div>
 </template>
 

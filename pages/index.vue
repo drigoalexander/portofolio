@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="w-full" style="font-family: inter, sans-serif">
+    <!-- Bumper -->
     <div
       v-if="!isVisited"
+      v-once
       class="bg-neutral-100 w-full h-screen fixed items-center justify-center z-30 bumper"
     >
       <svg
@@ -34,157 +36,158 @@
         </g>
       </svg>
     </div>
-    <div
-      id="modals"
-      class="bg-neutral-100 dark:bg-gray-950 text-black w-full h-screen relative z-10 flex flex-col justify-between py-24"
-    >
+    <!-- End Bumper -->
+    <div id="test">test</div>
+    <UContainer class="py-16 grid grid-cols-4 gap-8">
+      <!-- Identity -->
       <div
-        :class="{
-          'translate-y-[120%]': !modals,
-          'translate-y-0': modals,
-        }"
-        class="leading-5 tracking-wide left-[1%] bottom-[1%] flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-100 dark:bg-neutral-950 shadow-xl text-neutral-950 dark:text-neutral-200 z-20"
+        class="space-y-6 cols-span-4 md:col-span-2 bg-card rounded-xl p-8 text-white row-span-2 divide-y-2 divide-[#989899]/50"
       >
-        <span class="text-sm">
-          Searching for developer to help you build your website? <br>
-          Well, maybe i can help you 😁 <br>
-          <br>
-          Discuss with me
-          <NuxtLink
-            to="/freelance"
-            class="bg-gradient2 font-bold text-black px-2 capitalize"
-          >here!!</NuxtLink>
-          🚀
-        </span>
-
-        <div
-          class="relative w-auto group cursor-none"
-          @click="modals = false"
+        <h1
+          class="text-[clamp(1rem,4vw+1rem,1.25rem)] font-thin capitalize tracking-wide text-[#989899]"
         >
-          <svg
-            width="20"
-            height="20"
-            class="stroke-2 group"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+          <span
+            class="text-white font-normal tracking-tight text-[clamp(1.25rem,4vw+1rem,1.5rem)]"
+            >Drigo Alexander</span
           >
-            <path
-              class="rotate-0 origin-center group-hover:rotate-[45deg] duration-500 ease-in-out stroke-neutral-950 dark:stroke-neutral-100"
-              d="M18 6L6 18"
-              stroke=""
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              class="rotate-0 origin-center group-hover:rotate-[-45deg] duration-500 ease-in-out stroke-neutral-950 dark:stroke-neutral-100"
-              d="M6 6L18 18"
-              stroke=""
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
-      </div>
-      <div class="text-2xl flex justify-between px-[5%] items-center w-full">
-        <svg
-          class="fill-black dark:fill-white"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="40px"
-          height="40px"
-          viewBox="0 0 40 40"
-          version="1.1"
-        >
-          <g id="surface1">
-            <path
-              style="
-                stroke: none;
-                fill-rule: nonzero;
+          ⌜ Junior Developer Who Loves
+          <span class="hover:text-[#00DC82] ease-in-out duration-300"
+            >Nuxt</span
+          >
+          and
+          <span class="hover:text-gradient1 ease-in-out duration-300"
+            >Frontend</span
+          >
+          things ✌️
+        </h1>
 
-                fill-opacity: 1;
-              "
-              d="M 40 27.792969 L 40 32 L 29.792969 32 L 26.4375 27.792969 L 22.773438 23.207031 L 19.113281 27.792969 L 15.753906 32 L 3 32 C 1.34375 32 0 30.589844 0 28.847656 L 0 23.269531 C 0 21.984375 0.742188 20.828125 1.875 20.34375 L 4 19.441406 L 7.335938 18.027344 L 9.210938 17.230469 C 10.417969 16.71875 11.796875 17.078125 12.636719 18.125 L 13.9375 19.757812 L 14.511719 20.476562 L 11.902344 23.75 L 10.503906 22 C 10.238281 21.65625 9.769531 21.53125 9.363281 21.703125 L 4.625 23.710938 C 4.242188 23.882812 3.996094 24.265625 4 24.6875 L 4 26.742188 C 4 27.324219 4.449219 27.792969 5 27.792969 L 13.890625 27.792969 L 13.980469 27.683594 L 18.113281 22.507812 L 20.164062 19.9375 L 15.292969 13.832031 C 13.972656 12.175781 11.785156 11.601562 9.875 12.410156 L 4 14.90625 L 0 16.605469 L 0 12.070312 L 7.871094 8.726562 C 11.6875 7.109375 16.0625 8.253906 18.707031 11.566406 L 22.773438 16.664062 L 25.386719 19.9375 L 31.65625 27.792969 Z M 22.789062 16.648438 L 22.773438 16.664062 L 25.386719 19.9375 L 25.398438 19.921875 Z M 29.648438 8.054688 L 26.289062 12.261719 L 24.089844 15.015625 L 26.703125 18.28125 L 31.511719 12.253906 L 40 12.253906 L 40 8.054688 Z M 29.648438 8.054688 "
-            />
-          </g>
-        </svg>
-        <DarkSwitch />
-      </div>
-      <NuxtLink to="/projects">
-        <div
-          class="group cursor-none relative w-full font-bold text-[15vw] pl-[10vw] border-t-2 text-neutral-800 dark:text-zinc-300 dark:border-zinc-300 border-b-2 border-neutral-800 z-10"
-        >
-          <div
-            class="before:content-[''] before:h-full before:left-0 top-0 before:bg-gradient-to-r before:from-transparent before:to-[#ffc371] before:via-[#ff5f6d] before:w-[0%] before:group-hover:w-full before:absolute before:-z-10 before:ease-out before:duration-500 before:transition-all"
-          />
-          Projects
-        </div>
-      </NuxtLink>
-      <div
-        class="text-[5vw] lg:text-xl flex flex-col lg:flex-row justify-between px-[5%] items-start lg:pt-0 space-y-4 lg:items-center w-full"
-      >
-        <p class="text-neutral-800 dark:text-zinc-300">
-          Drigo Alexander <br>Portofolio
+        <p class="tracking-wide pt-6 leading-7 text-[#989899]">
+          Hey there! Just graduated from Institut Teknologi Sepuluh Nopember,
+          I'm a Frontend Developer crafting wonders with
+          <UTooltip text="Nuxt 3 Are My On The Go JS Framework">
+            <span
+              class="border-b-[1px] hover:text-[#00DC82] ease-in-out duration-300"
+            >
+              Nuxt</span
+            >
+          </UTooltip>
+          , and currently exploring the backend universe with
+          <UTooltip text="Currently, Building App With Go">
+            <span
+              class="border-b-[1px] hover:text-[#29BEB0] ease-in-out duration-300"
+              >Go</span
+            > </UTooltip
+          >.
         </p>
-        <div class="flex gap-4 items-center">
-          <NuxtLink
-            to="https://github.com/drigoalexander"
-            target="_blank"
-          >
-            <svg
-              class="cursor-none fill-neutral-800 dark:fill-zinc-300 hover:scale-125 duration-300 ease-in-out"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              width="30px"
-              height="30px"
-              viewBox="0 0 30 30"
-              version="1.1"
-            >
-              <g id="surface1">
-                <path
-                  style="
-                    stroke: none;
-                    fill-rule: evenodd;
+      </div>
+      <!-- End Identity -->
 
-                    fill-opacity: 1;
-                  "
-                  d="M 14.957031 0.9375 C 6.6875 0.9375 0 7.382812 0 15.359375 C 0 21.730469 4.285156 27.128906 10.226562 29.03125 C 10.972656 29.179688 11.242188 28.726562 11.242188 28.34375 C 11.242188 28.007812 11.214844 26.863281 11.214844 25.671875 C 7.054688 26.527344 6.1875 23.949219 6.1875 23.949219 C 5.523438 22.28125 4.535156 21.847656 4.535156 21.847656 C 3.171875 20.96875 4.628906 20.96875 4.628906 20.96875 C 6.136719 21.0625 6.9375 22.449219 6.9375 22.449219 C 8.269531 24.644531 10.421875 24.023438 11.292969 23.640625 C 11.410156 22.710938 11.8125 22.066406 12.230469 21.707031 C 8.914062 21.371094 5.417969 20.132812 5.417969 14.589844 C 5.417969 13.015625 6.011719 11.726562 6.957031 10.722656 C 6.8125 10.363281 6.292969 8.882812 7.105469 6.90625 C 7.105469 6.90625 8.371094 6.527344 11.214844 8.386719 C 12.4375 8.070312 13.6875 7.910156 14.957031 7.910156 C 16.214844 7.910156 17.503906 8.078125 18.691406 8.386719 C 21.539062 6.527344 22.808594 6.90625 22.808594 6.90625 C 23.621094 8.882812 23.101562 10.363281 22.953125 10.722656 C 23.921875 11.726562 24.484375 13.015625 24.484375 14.589844 C 24.484375 20.132812 21 21.351562 17.652344 21.707031 C 18.199219 22.164062 18.667969 23.019531 18.667969 24.382812 C 18.667969 26.316406 18.648438 27.867188 18.648438 28.34375 C 18.648438 28.726562 18.917969 29.179688 19.65625 29.03125 C 25.605469 27.128906 29.882812 21.730469 29.882812 15.359375 C 29.914062 7.382812 23.203125 0.9375 14.957031 0.9375 Z M 14.957031 0.9375 "
-                />
-              </g>
-            </svg>
-          </NuxtLink>
-          <NuxtLink
-            to="https://www.linkedin.com/in/drigo-alexander-9a36a01a8/"
-            target="_blank"
+      <!-- Framework -->
+      <div class="col-span-2 bg-card p-8 rounded-xl space-y-8 row-span-1">
+        <h2 class="text-[clamp(1.25rem,4vw+1rem,1.5rem)] font-normal">
+          Tech Stack
+          <span
+            class="text-[clamp(1rem,4vw+1rem,1.25rem)] font-thin capitalize tracking-wide text-[#989899]"
+            >⌜ for Daily Coding</span
           >
-            <svg
-              class="cursor-none fill-neutral-800 dark:fill-zinc-300 hover:scale-125 duration-300 ease-in-out"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 30 30"
-              width="30px"
-              height="30px"
-            >
-              <path
-                d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"
-              />
-            </svg>
-          </NuxtLink>
+        </h2>
+
+        <div class="flex items-center justify-around gap-10">
+          <LazyCardStack
+            v-for="el in icon"
+            :key="el.techName"
+            :tech-name="el.techName"
+            :logo="el.icon"
+          />
         </div>
       </div>
-    </div>
+      <!-- End Framework -->
+
+      <a
+        href="/Drigo_Alexander-Resume.pdf"
+        download
+        class="cursor-none col-span-2 flex justify-between items-center row-span-1 group bg-card p-8 rounded-xl relative text-[clamp(1rem,4vw+1rem,1.25rem)] capitalize tracking-wide text-white overflow-hidden"
+        @click="
+          toast.add({
+            title: 'Downloading! Hope You Interested With My Resume',
+            color: 'orange',
+            timeout: 2000,
+          })
+        "
+      >
+        <div
+          class="absolute left-1/2 -translate-x-1/2 -bottom-10 bg-stone-900 z-10 w-0 h-full scale-0 duration-500 ease-in-out group-hover:scale-[2] group-hover:w-full"
+        />
+        <span class="z-20 relative"> Download my resume here </span>
+        <UIcon
+          name="i-system-uicons-document"
+          class="scale-150 relative z-20"
+        />
+      </a>
+
+      <div
+        id="projects"
+        class="h-auto col-span-3 row-span-2 bg-card rounded-xl p-8 divide-y-[1px] divide-[#989899]"
+      >
+        <h1 class="font-semibold text-[clamp(1.25rem,4vw+1rem,1.5rem)]">
+          Personal Portfolio
+          <span
+            class="tracking-wide pt-6 leading-7 text-[#989899] text-[clamp(1rem,4vw+1rem,1.25rem)]"
+          >
+            ⌜ Showcasing Varied Projects I've Successfully Developed and
+            Implemented.
+          </span>
+        </h1>
+
+        <div class="w-full mt-6 flex flex-col gap-6">
+          <LazyLinkCard
+            v-for="value in content"
+            :key="value._id"
+            :header="value.title"
+            :paragraph="value.description"
+            :path="value._path"
+          />
+        </div>
+      </div>
+
+      <div
+        class="col-span-1 row-span-2 bg-card p-8 rounded-xl divide-y-[1px] divide-[#989899]"
+      >
+        <h1
+          class="text-[clamp(1.25rem,4vw+1rem,1.5rem)] font-semibold capitalize"
+        >
+          Tools
+          <span
+            class="tracking-wide pt-6 leading-7 text-[#989899] text-[clamp(0.75rem,4vw+1rem,1rem)]"
+            >⌜ Something That I Found on the internet, and why not making it to
+            help others?
+          </span>
+        </h1>
+        <div class="w-full mt-6 flex flex-col gap-6">
+          <LazySmallLinkCard
+            disabled
+            class="cursor-not-allowed"
+            header="Fluid Element"
+            paragraph="Generate Tailwind / CSS Code For Responsive Text / Width"
+          />
+        </div>
+      </div>
+      <div class="col-span-1 bg-red-500" id="hitpoint">
+        {{ fluidFont(24, 64) }}
+      </div>
+    </UContainer>
   </div>
 </template>
 
 <script setup>
 import { useSessionStorage } from "@vueuse/core";
 
-const browserName = ref("");
+const { $gsap: gsap } = useNuxtApp();
+const toast = useToast();
 const { $anime } = useNuxtApp();
 const isVisited = useSessionStorage("isVisited", false);
-const modals = ref(false);
-onMounted(() => {
-  browserName.value = navigator.userAgent.toLowerCase();
 
+onMounted(() => {
   if (isVisited.value === false) {
     $anime.set("#surface2 path", {
       strokeDashoffset: $anime.setDashoffset,
@@ -241,10 +244,35 @@ onMounted(() => {
     });
   }
   setTimeout(() => {
-    modals.value = true;
-  }, 300);
-  setTimeout(() => {
     isVisited.value = true;
   }, 5000);
+
+  gsap.to("#test", { rotationY: 5, opacity: 0, duration: 1 });
 });
+
+const icon = [
+  {
+    icon: "i-mdi-tailwind",
+    techName: "TailwindCSS",
+  },
+  {
+    icon: "i-simple-icons-nuxtdotjs",
+    techName: "Nuxt",
+  },
+  {
+    icon: "i-simple-icons-go",
+    techName: "Go",
+  },
+  {
+    icon: "i-simple-icons-prisma",
+    techName: "Prisma",
+  },
+  {
+    icon: "i-logos-pinia",
+    techName: "Pinia",
+  },
+];
+
+const content = await queryContent("projects").find();
+console.log(content);
 </script>
