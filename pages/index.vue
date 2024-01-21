@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full" style="font-family: inter, sans-serif">
+  <div class="w-full relative z-10" style="font-family: inter, sans-serif">
     <!-- Bumper -->
     <div
       v-if="!isVisited"
@@ -37,11 +37,11 @@
       </svg>
     </div>
     <!-- End Bumper -->
-    <div id="test">test</div>
+
     <UContainer class="py-16 grid grid-cols-4 gap-8">
       <!-- Identity -->
       <div
-        class="space-y-6 cols-span-4 md:col-span-2 bg-card rounded-xl p-8 text-white row-span-2 divide-y-2 divide-[#989899]/50"
+        class="content space-y-6 col-span-4 md:col-span-2 bg-card rounded-xl p-8 text-white row-span-2 divide-y-2 divide-[#989899]/50"
       >
         <h1
           class="text-[clamp(1rem,4vw+1rem,1.25rem)] font-thin capitalize tracking-wide text-[#989899]"
@@ -83,7 +83,9 @@
       <!-- End Identity -->
 
       <!-- Framework -->
-      <div class="col-span-2 bg-card p-8 rounded-xl space-y-8 row-span-1">
+      <div
+        class="content col-span-4 md:col-span-2 bg-card p-8 rounded-xl space-y-8 row-span-1"
+      >
         <h2 class="text-[clamp(1.25rem,4vw+1rem,1.5rem)] font-normal">
           Tech Stack
           <span
@@ -106,7 +108,7 @@
       <a
         href="/Drigo_Alexander-Resume.pdf"
         download
-        class="cursor-none col-span-2 flex justify-between items-center row-span-1 group bg-card p-8 rounded-xl relative text-[clamp(1rem,4vw+1rem,1.25rem)] capitalize tracking-wide text-white overflow-hidden"
+        class="content cursor-none col-span-4 md:col-span-2 flex justify-between items-center row-span-1 group bg-card p-8 rounded-xl relative text-[clamp(1rem,4vw+1rem,1.25rem)] capitalize tracking-wide text-white overflow-hidden"
         @click="
           toast.add({
             title: 'Downloading! Hope You Interested With My Resume',
@@ -127,7 +129,7 @@
 
       <div
         id="projects"
-        class="h-auto col-span-3 row-span-2 bg-card rounded-xl p-8 divide-y-[1px] divide-[#989899]"
+        class="content h-auto col-span-4 md:col-span-3 row-span-2 bg-card rounded-xl p-8 divide-y-[1px] divide-[#989899]"
       >
         <h1 class="font-semibold text-[clamp(1.25rem,4vw+1rem,1.5rem)]">
           Personal Portfolio
@@ -151,7 +153,7 @@
       </div>
 
       <div
-        class="col-span-1 row-span-2 bg-card p-8 rounded-xl divide-y-[1px] divide-[#989899]"
+        class="content col-span-4 md:col-span-1 row-span-2 bg-card p-8 rounded-xl divide-y-[1px] divide-[#989899]"
       >
         <h1
           class="text-[clamp(1.25rem,4vw+1rem,1.5rem)] font-semibold capitalize"
@@ -172,9 +174,6 @@
           />
         </div>
       </div>
-      <div class="col-span-1 bg-red-500" id="hitpoint">
-        {{ fluidFont(24, 64) }}
-      </div>
     </UContainer>
   </div>
 </template>
@@ -182,12 +181,14 @@
 <script setup>
 import { useSessionStorage } from "@vueuse/core";
 
-const { $gsap: gsap } = useNuxtApp();
+const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp();
 const toast = useToast();
 const { $anime } = useNuxtApp();
 const isVisited = useSessionStorage("isVisited", false);
 
-onMounted(() => {
+onMounted(async () => {
+  const tl = gsap.timeline();
+  const tl2 = gsap.timeline();
   if (isVisited.value === false) {
     $anime.set("#surface2 path", {
       strokeDashoffset: $anime.setDashoffset,
@@ -229,7 +230,18 @@ onMounted(() => {
                 duration: 500,
                 delay: 1500,
                 easing: "cubicBezier(.5, .05, .1, .3)",
-              })
+              }),
+              setTimeout(() => {
+                gsap.utils.toArray(".content").forEach((content) => {
+                  tl2.from(content, {
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.5,
+                    stagger: 0.05,
+                    ease: "power3.out",
+                  });
+                });
+              }, 1000)
             );
           },
         });
@@ -247,7 +259,21 @@ onMounted(() => {
     isVisited.value = true;
   }, 5000);
 
-  gsap.to("#test", { rotationY: 5, opacity: 0, duration: 1 });
+  tl.from("#footer", {
+    translateY: "200%",
+    scale: -5,
+    borderRadius: "9999px",
+    opacity: 0,
+    ease: "sine.inOut",
+  });
+
+  ScrollTrigger.create({
+    trigger: "#container",
+    animation: tl,
+    start: "top top ",
+    pinSpacing: false,
+    scrub: true,
+  });
 });
 
 const icon = [
@@ -274,5 +300,4 @@ const icon = [
 ];
 
 const content = await queryContent("projects").find();
-console.log(content);
 </script>
