@@ -14,7 +14,7 @@
       :style="`left: ${X}px; top: ${Y}px; position: ${position}; display: ${display}`"
       class="pointer-events-none w-1.5 aspect-square rounded-full bg-neutral-700 dark:bg-white left-1/2 -translate-x-1/2 -translate-y-1/2 dot-tracker z-[999] ease-in-out transition duration-300"
     />
-    <NuxtPage />
+    <NuxtPage id="container" />
     <FooterLayout />
   </div>
 </template>
