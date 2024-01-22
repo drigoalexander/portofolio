@@ -9,7 +9,7 @@
     />
     <div class="flex flex-col gap-2 items-start">
       <span
-        class="text-black dark:text-white font-semibold text-[clamp(1rem,4vw+1rem,1.25rem) ]"
+        class="text-white font-semibold text-[clamp(1rem,4vw+1rem,1.25rem) ]"
       >{{ header }}</span>
       <span
         class="capitalize text-[#8A8A8E] text-[clamp(0.875rem,4vw+1rem,1rem)) font-light] group-hover:text-[#989899] ease-in-out duration-300"

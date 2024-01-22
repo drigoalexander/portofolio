@@ -4,13 +4,11 @@
       '-translate-y-[120%]': !modals,
       'translate-y-0': modals,
     }"
-    class="left-[1%] top-[0.5%] flex justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-neutral-100 dark:bg-neutral-950 shadow-xl text-neutral-950 dark:text-neutral-200 z-20"
+    class="left-[1%] top-[3dvh] flex gap-10 justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-black border-[1px] border-card z-30"
   >
-    <span class="text-sm leading-5 tracking-wide">
-      Hi! This Portofolio Website are still <br>
-      under development! Enjoy 😁 <br>
-      <br>
-      Oops, i forgot, use computer for better experience!! 🚀
+    <span class="text-sm tracking-wide">
+      Attention Reader!<br>
+      This Project Has Taken Down Due To {{ text }} 😁
     </span>
 
     <div
@@ -44,19 +42,12 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const modals = ref(false);
-defineProps({
-  position: {
-    type: String,
-    default: "top-left",
-    validator: (positionCard) =>
-      ["top-left", "top-right", "bottom-left", "bottom-right"].includes(
-        positionCard
-      ),
-  },
-});
+defineProps<{
+  text: string;
+}>();
 onMounted(() => {
-  setTimeout((modals.value = true), 5000);
+  setTimeout(() => (modals.value = true), 5000);
 });
 </script>

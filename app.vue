@@ -1,8 +1,8 @@
 <template>
   <div class="bg-black min-h-screen">
-    <NuxtLayout>
+    <LazyNuxtLayout>
       <LazyNuxtPage />
-    </NuxtLayout>
+    </LazyNuxtLayout>
     <UNotifications color="rose" />
   </div>
 </template>

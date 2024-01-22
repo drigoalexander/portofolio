@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full relative z-10" style="font-family: inter, sans-serif">
+  <div class="w-full relative z-10">
     <!-- Bumper -->
     <div
       v-if="!isVisited"
@@ -48,16 +48,11 @@
         >
           <span
             class="text-white font-normal tracking-tight text-[clamp(1.25rem,4vw+1rem,1.5rem)]"
-            >Drigo Alexander</span
-          >
+          >Drigo Alexander</span>
           ⌜ Junior Developer Who Loves
-          <span class="hover:text-[#00DC82] ease-in-out duration-300"
-            >Nuxt</span
-          >
+          <span class="hover:text-[#00DC82] ease-in-out duration-300">Nuxt</span>
           and
-          <span class="hover:text-gradient1 ease-in-out duration-300"
-            >Frontend</span
-          >
+          <span class="hover:text-gradient1 ease-in-out duration-300">Frontend</span>
           things ✌️
         </h1>
 
@@ -68,16 +63,14 @@
             <span
               class="border-b-[1px] hover:text-[#00DC82] ease-in-out duration-300"
             >
-              Nuxt</span
-            >
+              Nuxt</span>
           </UTooltip>
           , and currently exploring the backend universe with
           <UTooltip text="Currently, Building App With Go">
             <span
               class="border-b-[1px] hover:text-[#29BEB0] ease-in-out duration-300"
-              >Go</span
-            > </UTooltip
-          >.
+            >Go</span>
+          </UTooltip>.
         </p>
       </div>
       <!-- End Identity -->
@@ -86,15 +79,16 @@
       <div
         class="content col-span-4 md:col-span-2 bg-card p-8 rounded-xl space-y-8 row-span-1"
       >
-        <h2 class="text-[clamp(1.25rem,4vw+1rem,1.5rem)] font-normal">
+        <h2
+          class="text-[clamp(1.25rem,4vw+1rem,1.5rem)] font-normal text-white"
+        >
           Tech Stack
           <span
             class="text-[clamp(1rem,4vw+1rem,1.25rem)] font-thin capitalize tracking-wide text-[#989899]"
-            >⌜ for Daily Coding</span
-          >
+          >⌜ for Daily Coding</span>
         </h2>
 
-        <div class="flex items-center justify-around gap-10">
+        <div class="flex flex-wrap items-center justify-around gap-10">
           <LazyCardStack
             v-for="el in icon"
             :key="el.techName"
@@ -129,7 +123,7 @@
 
       <div
         id="projects"
-        class="content h-auto col-span-4 md:col-span-3 row-span-2 bg-card rounded-xl p-8 divide-y-[1px] divide-[#989899]"
+        class="content h-auto col-span-4 md:col-span-3 row-span-2 bg-card rounded-xl p-8 divide-y-[1px] divide-[#989899] text-white"
       >
         <h1 class="font-semibold text-[clamp(1.25rem,4vw+1rem,1.5rem)]">
           Personal Portfolio
@@ -156,12 +150,12 @@
         class="content col-span-4 md:col-span-1 row-span-2 bg-card p-8 rounded-xl divide-y-[1px] divide-[#989899]"
       >
         <h1
-          class="text-[clamp(1.25rem,4vw+1rem,1.5rem)] font-semibold capitalize"
+          class="text-[clamp(1.25rem,4vw+1rem,1.5rem)] font-semibold capitalize text-white"
         >
           Tools
           <span
             class="tracking-wide pt-6 leading-7 text-[#989899] text-[clamp(0.75rem,4vw+1rem,1rem)]"
-            >⌜ Something That I Found on the internet, and why not making it to
+          >⌜ Something That I Found on the internet, and why not making it to
             help others?
           </span>
         </h1>
@@ -261,7 +255,7 @@ onMounted(async () => {
 
   tl.from("#footer", {
     translateY: "200%",
-    scale: -5,
+    scale: 0,
     borderRadius: "9999px",
     opacity: 0,
     ease: "sine.inOut",
@@ -270,6 +264,7 @@ onMounted(async () => {
   ScrollTrigger.create({
     trigger: "#container",
     animation: tl,
+    onEnter: {},
     start: "top top ",
     pinSpacing: false,
     scrub: true,

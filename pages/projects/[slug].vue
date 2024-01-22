@@ -1,71 +1,93 @@
 <template>
   <div
-    class="relative z-10 gap-4 pb-16 pt-14 lg:pt-0 lg:pb-24 bg-white dark:bg-black antialiased min-h-screen mx-auto max-w-screen-5xl"
+    id="container"
+    class="cursor-auto pointer-events-auto relative z-20 gap-4 pb-16 pt-14 lg:pt-0 lg:pb-24 bg-black min-h-screen mx-auto max-w-screen-5xl w-full justify-center items-center"
   >
-    <main class="relative">
-      <aside
-        v-if="viewport.isGreaterThan('desktop')"
-        class="py-6 sticky ml-0 lg:ml-16 flex top-1/4 flex-col w-fit"
+    <ModalsCard
+      v-if="page.projectStatus"
+      :text="page.projectStatus"
+    />
+    <div
+      class="relative flex flex-col text-white w-full items-center justify-center py-16"
+    >
+      <h1
+        class="text-[clamp(1.25rem,4vw+1rem,4rem)] capitalize font-bold tracking-tight"
       >
-        <span class="text-xl font-semibold">Table of Content</span>
-        <ul class="flex flex-col gap-2 pt-6">
-          <NuxtLink
-            v-for="el in toc.links"
-            :key="el.id"
-            class="relative group"
-            :to="`#${el.id}`"
-          >
-            <span
-              class="before:content-[''] before:h-full before:duration-300 before:ease-in-out before:w-[2px] before:bg-black before:absolute before:left-0 pr-2"
-            />
-            {{ el.text }}
-          </NuxtLink>
-        </ul>
-        <NuxtLink
-          style="font-family: MuseoModerno"
-          to="/projects"
-          class="text-xl mt-20 cursor-none before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0 before:w-0 before:duration-300 before:ease-in-out before:bg-gradient-to-r before:from-gradient1 before:to-gradient2 before:absolute before:left-0 text-neutral-950 dark:text-neutral-200"
+        <span
+          v-for="el in titleSplit"
+          :id="el"
+          :key="el"
+          class="title"
+        >{{
+          el
+        }}</span>
+      </h1>
+      <p
+        class="text-[clamp(0.6rem,4vw+1rem,0.9rem)] tracking-wider font-normal"
+      >
+        <span
+          v-for="el in descSplit"
+          :id="el"
+          :key="el"
+          class="desc"
+        >{{
+          el
+        }}</span>
+      </p>
+      <div
+        class="absolute w-full bottom-0 left-0 h-[1px] bg-gradient-to-r from-gradient1 to-gradient2"
+      />
+    </div>
+
+    <main class="relative mt-24">
+      <div class="flex justify-between px-4 mx-auto flex-col items-center">
+        <h1
+          class="text-[clamp(1.25rem,4vw+1rem,3rem)] capitalize font-bold tracking-tight"
         >
-          Back
-        </NuxtLink>
-      </aside>
-      <div class="flex justify-between px-4 mx-auto flex-col ml-0 lg:ml-64">
-        <div class="mx-auto w-full max-w-5xl">
+          <span>{{ page.opening }}</span>
+        </h1>
+
+        <div class="flex gap-16 items-center justify-center py-8">
           <div
-            class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-neutral-100 pb-20"
+            v-if="page.sourceCode"
+            class="flex flex-col gap-1 items-center"
           >
-            <div class="mr-4 w-16 h-16 rounded-full overflow-hidden">
-              <img
-                class="-translate-y-4"
-                src="https://res.cloudinary.com/dxy6iowwg/image/upload/v1695915093/23hr97hgbou2qiva_zbwr9t.png"
-                alt="Drigo Alexander"
-              />
-            </div>
-
-            <div>
-              <NuxtLink
-                to="https://www.linkedin.com/in/drigo-alexander-9a36a01a8/"
-                class="text-xl font-bold text-gray-900 dark:text-neutral-200"
-              >
-                Drigo Alexander
-              </NuxtLink>
-
-              <p class="text-base text-gray-500 dark:text-neutral-200">
-                Frontend Developer, Jakarta Indonesia
-              </p>
-              <p class="text-base text-gray-500 dark:text-neutral-200">
-                <time
-                  pubdate=""
-                  datetime="2023-09-28"
-                  title="February 8th, 2022"
-                  >28 September 2023</time
-                >
-              </p>
-            </div>
+            <h4
+              class="uppercase text-[0.6rem] text-white font-semibold tracking-widest"
+            >
+              Source
+            </h4>
+            <NuxtLink
+              :to="page.sourceCode"
+              target="_blank"
+              class="uppercase text-paragraph font-semibold tracking-widest text-[0.75rem]"
+            >
+              Github
+            </NuxtLink>
           </div>
+          <div
+            v-if="page.project"
+            class="flex flex-col gap-1 items-center"
+          >
+            <h4
+              class="uppercase text-[0.6rem] text-white font-semibold tracking-widest"
+            >
+              Demo
+            </h4>
+            <NuxtLink
+              :to="page.project"
+              target="_blank"
+              class="uppercase text-paragraph font-semibold tracking-widest text-[0.75rem]"
+            >
+              Project
+            </NuxtLink>
+          </div>
+        </div>
+
+        <div class="mx-auto w-full max-w-5xl">
           <article class="w-full text-justify px-4 md:px-8">
             <ContentDoc />
-            <hr class="my-8" />
+            <hr class="my-8">
             <div class="grid gap-8 sm:grid-cols-2 text-white">
               <NuxtLink
                 v-if="prev"
@@ -83,20 +105,20 @@
                 >
                   <span
                     class="w-5 h-5 text-gray-900 dark:text-white group-hover:text-primary flex items-center justify-center"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-6 h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
-                      />
-                    </svg>
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+                    />
+                  </svg>
                   </span>
                 </div>
                 <p
@@ -126,20 +148,20 @@
                 >
                   <span
                     class="w-5 h-5 text-gray-900 dark:text-white group-hover:text-primary flex items-center justify-center"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-6 h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                      />
-                    </svg>
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                    />
+                  </svg>
                   </span>
                 </div>
                 <p
@@ -154,8 +176,6 @@
                 </p>
               </NuxtLink>
               <NuxtLink
-                v-if="viewport.isLessThan('desktop')"
-                style="font-family: MuseoModerno, sans-serif"
                 to="/projects"
                 class="text-xl pb-2 mt-20 cursor-none before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0 before:w-0 before:duration-300 before:ease-in-out before:bg-gradient-to-r before:from-gradient1 before:to-gradient2 before:absolute before:left-0 text-neutral-950 dark:text-neutral-200"
               >
@@ -167,62 +187,95 @@
       </div>
     </main>
   </div>
+  <FooterLayout />
 </template>
 
 <script setup>
-const viewport = useViewport();
-const route = useRoute();
-const { toc } = useContent();
+definePageMeta({
+  layout: "blog",
+});
+
+const { fullPath } = useRoute();
+const { page } = useContent();
+const titleSplit = page.value.title.split("");
+const descSplit = page.value.description.split("");
+
 const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp();
 
 onMounted(() => {
   const tl = gsap.timeline();
-
   tl.from("#footer", {
-    translateY: "100%",
-    scale: 1.5,
+    translateY: "200%",
+    scale: 0,
+    borderRadius: "9999px",
     opacity: 0,
     ease: "sine.inOut",
   });
+
   ScrollTrigger.create({
     trigger: "#container",
     animation: tl,
-    start: "center top ",
-    pinSpacing: false,
+    start: "top top",
     scrub: true,
+    pinSpacing: false,
+  });
+
+  const tl2 = gsap.timeline();
+  const tl3 = gsap.timeline();
+  gsap.utils.toArray(".title").forEach((title) => {
+    tl2.from(title, {
+      translateX: "-100%",
+      opacity: 0,
+      stagger: 0.1,
+
+      duration: 0.1,
+      ease: "sine.inOut",
+    });
+  });
+
+  gsap.utils.toArray(".desc").forEach((desc) => {
+    tl3.from(desc, {
+      rotate: 50,
+      opacity: 0,
+      stagger: 0.1,
+
+      duration: 0.1,
+      ease: "sine.inOut",
+    });
   });
 });
 
-const [prev, next] = await queryContent().findSurround(route.fullPath);
+const [prev, next] = await queryContent().findSurround(fullPath);
+useContentHead(page);
 </script>
 
 <style>
 article h1 {
-  @apply text-neutral-600 dark:text-neutral-200 text-5xl font-bold pb-4 capitalize;
+  @apply text-white text-5xl font-bold pb-4 capitalize;
 }
 
 article h2 {
-  @apply text-neutral-600 dark:text-neutral-200 text-2xl font-bold pb-4 capitalize;
+  @apply text-white text-3xl font-semibold pb-4 tracking-wide capitalize;
 }
 
 article a {
-  @apply text-neutral-600 dark:text-neutral-200 italic no-underline  inline-block relative z-20 before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0  before:w-0 before:duration-300 before:ease-in-out before:bg-gradient-to-r before:from-gradient1 before:to-gradient2  before:absolute before:left-0;
+  @apply text-white  no-underline  inline-block relative z-20 before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0  before:w-0 before:duration-300 before:ease-in-out before:bg-gradient-to-r before:from-gradient1 before:to-gradient2  before:absolute before:left-0;
 }
 
 article pre {
-  @apply text-neutral-600 dark:text-neutral-200 p-10  bg-[#242526] rounded-md  my-10 overflow-auto;
+  @apply text-white p-10  bg-card rounded-md  my-10 overflow-auto;
 }
 
 article p {
-  @apply text-neutral-600 dark:text-neutral-200  py-4;
+  @apply text-[#989899]  pt-2 pb-16 font-normal leading-relaxed;
 }
 
 article blockquote {
-  @apply text-neutral-600 dark:text-neutral-200 text-xl font-bold border-t-[1px] border-b-[1px] text-center text-green-300 my-4;
+  @apply text-white text-xl font-bold border-t-[1px] border-b-[1px] text-center  my-4;
 }
 
 article ol {
-  @apply text-neutral-600 dark:text-neutral-200 list-decimal space-y-4 py-6;
+  @apply text-white list-decimal space-y-4 py-6;
 }
 
 article ol li {

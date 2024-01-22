@@ -3,18 +3,8 @@
     <div
       class="w-full fixed top-0 h-[10px] bg-gradient-to-r from-gradient1 to-gradient2 z-20"
     />
-    <div
-      id="rectangle"
-      :style="`left: ${X}px; top: ${Y}px; rotate: ${mappedMouseX}deg; position: ${position}; display: ${display}`"
-      class="origin-top-left pointer-events-none size-8 border-[1.5px] border-gradient1 z-[999] duration-300 ease-in-out transition -translate-x-1/2 -translate-y-1/2"
-    />
-    <div
-      id="dot"
-      :style="`left: ${X}px; top: ${Y}px; position: ${position}; display: ${display}`"
-      class="pointer-events-none size-1.5 rounded-full bg-white left-1/2 -translate-x-1/2 -translate-y-1/2 dot-tracker z-[999] ease-in-out transition duration-300"
-    />
-    <NuxtPage id="container" />
-    <FooterLayout />
+
+    <NuxtPage />
   </div>
 </template>
 
