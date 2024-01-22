@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-start gap-2 relative w-full rounded-lg border p-4 [&amp;>svg~*]:pl-7 [&amp;>svg+div]:translate-y-[-3px] [&amp;>svg]:absolute [&amp;>svg]:left-4 [&amp;>svg]:top-4 [&amp;>svg]:text-foreground bg-background text-foreground"
+    class="text-white my-6 flex gap-3 relative w-full rounded-lg border p-4 [&amp;>svg~*]:pl-7 [&amp;>svg+div]:translate-y-[-3px] [&amp;>svg]:absolute [&amp;>svg]:left-4 [&amp;>svg]:top-4 [&amp;>svg]:text-foreground bg-background text-foreground bg-black"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="size-4"
+      class="h-4 w-4"
     >
       <polyline points="4 17 10 11 4 5" />
       <line
@@ -22,13 +22,12 @@
         y2="19"
       />
     </svg>
-
     <div class="flex flex-col gap-1">
       <h5 class="mb-1 font-medium leading-none tracking-tight">
-        Information!
+        Notifications!
       </h5>
-      <div class="text-sm [&amp;_p]:leading-relaxed">
-        <ContentSlot :use="$slots.default" />
+      <div class="text-sm [&amp;_p]:leading-relaxed font-light">
+        <slot />
       </div>
     </div>
   </div>

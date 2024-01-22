@@ -8,6 +8,7 @@ export default {
         gradient1: "#ff5f6d",
         gradient2: "#ffc371",
         card: "#1C1C1E",
+        paragraph: "#989899",
       },
       fontSize: {
         header: [

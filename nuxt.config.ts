@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  debug: true,
+  // debug: true,
+
   content: {
     highlight: {
       theme: "github-dark",
@@ -35,7 +36,10 @@ export default defineNuxtConfig({
     prefetch: true,
     preload: true,
     families: {
-      inter: {
+      "Roboto Condensed": {
+        wght: "200..900",
+      },
+      Roboto: {
         wght: "100..900",
       },
     },

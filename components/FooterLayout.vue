@@ -7,7 +7,9 @@
       class="tracking-wide text-sm max-md:col-span-2 md:max-[850px]:col-span-2 col-span-1 col-start-1 md:col-start-2 flex flex-col md:flex-row gap-8 items-start justify-center"
     >
       <div class="flex flex-col gap-3">
-        <h6 class="text-base footerText">Internet</h6>
+        <h6 class="text-base footerText">
+          Internet
+        </h6>
         <div class="flex flex-row md:flex-col gap-3">
           <NuxtLink
             v-for="value in internet"
@@ -22,14 +24,15 @@
       </div>
 
       <h6 class="text-base max-w-sm capitalize footerText">
-        Hi, There! 👋. <br />
+        Hi, There! 👋. <br>
         <span class="text-sm footerText">
           This is the end of my website, i hope you enjoy my website.
-          <br /><br />
+          <br><br>
           <span class="footerText">
-            Are you searching for someone that can help 🫵 with nuxt 🫨? I can
-            help you with it</span
-          >
+            Are you searching for someone that can help
+            <UIcon name="i-fluent-emoji-index-pointing-at-the-viewer" /> with
+            nuxt <UIcon name="i-fluent-emoji-eyes" />? I can help you build
+            something!</span>
         </span>
       </h6>
 
@@ -44,10 +47,11 @@
       <h4 class="group-hover:tracking-wide ease-in-out duration-300 footerText">
         CONTACT ME
       </h4>
-      <span
-        class="footerText group-hover:translate-x-2 group-hover:-translate-y-2 duration-300 ease-in-out"
-        >🚀</span
-      >
+      <UIcon
+        name="i-fluent-emoji-call-me-hand"
+        class="origin-bottom-left wiggle footerText"
+      />
+
       <div
         class="absolute bottom-0 left-0 w-0 group-hover:w-full rounded-full h-[3px] bg-gradient-to-r from-gradient1 to-gradient2 duration-300 ease-in-out"
       />
@@ -62,7 +66,7 @@ onMounted(() => {
   const targets = gsap.utils.toArray(".footerText");
   const tl = gsap.timeline();
 
-  targets.forEach((el, index) => {
+  targets.forEach((el) => {
     tl.from(el, {
       opacity: 0,
       translateY: "300px",
@@ -97,3 +101,20 @@ const internet = [
   },
 ];
 </script>
+
+<style scoped>
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+
+.wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+</style>
