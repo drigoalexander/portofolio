@@ -98,13 +98,13 @@
                   'col-start-1': next,
                   'col-span-1': next,
                 }"
-                class="max-sm:col-span-2 cursor-none block px-6 py-8 border not-prose rounded-lg border-gray-200 dark:border-gray-800 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 group"
+                class="max-sm:col-span-2 cursor-none block px-6 py-8 border not-prose rounded-lg hover:border-white ease-in-out duration-300 border-card bg-black group"
               >
                 <div
-                  class="inline-flex items-center rounded-full p-1.5 bg-gray-100 dark:bg-gray-800 group-hover:bg-primary/10 ring-1 ring-gray-300 dark:ring-gray-700 mb-4 group-hover:ring-primary/50"
+                  class="inline-flex items-center rounded-full p-1.5 bg-black group-hover:bg-black ring-1 ring-gray-300 dark:ring-gray-700 mb-4 group-hover:ring-white"
                 >
                   <span
-                    class="w-5 h-5 text-gray-900 dark:text-white group-hover:text-primary flex items-center justify-center"
+                    class="w-5 h-5 text-white group-hover:text-white flex items-center justify-center"
                   ><svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -121,14 +121,10 @@
                   </svg>
                   </span>
                 </div>
-                <p
-                  class="font-medium text-gray-900 dark:text-white text-[15px] mb-1"
-                >
+                <p class="font-medium text-white text-[15px] mb-1">
                   {{ prev?.title }}
                 </p>
-                <p
-                  class="text-sm font-normal text-gray-500 dark:text-gray-400 line-clamp-2"
-                >
+                <p class="text-sm font-normal text-white line-clamp-2">
                   {{ prev?.description }}
                 </p>
               </NuxtLink>
@@ -141,13 +137,13 @@
                   'col-start-2': prev,
                   'col-span-1': prev,
                 }"
-                class="max-sm:col-span-2 cursor-none block px-6 py-8 border not-prose rounded-lg border-gray-200 dark:border-gray-800 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 group"
+                class="max-sm:col-span-2 cursor-none block px-6 py-8 border not-prose rounded-lg hover:border-white ease-in-out duration-300 border-card bg-black group"
               >
                 <div
-                  class="inline-flex items-center rounded-full p-1.5 bg-gray-100 dark:bg-gray-800 group-hover:bg-primary/10 ring-1 ring-gray-300 dark:ring-gray-700 mb-4 group-hover:ring-primary/50"
+                  class="inline-flex items-center rounded-full p-1.5 bg-black group-hover:bg-black ring-1 ring-gray-300 dark:ring-gray-700 mb-4 group-hover:ring-white"
                 >
                   <span
-                    class="w-5 h-5 text-gray-900 dark:text-white group-hover:text-primary flex items-center justify-center"
+                    class="w-5 h-5 text-white group-hover:text-white flex items-center justify-center"
                   ><svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -164,14 +160,10 @@
                   </svg>
                   </span>
                 </div>
-                <p
-                  class="font-medium text-gray-900 dark:text-white text-[15px] mb-1"
-                >
+                <p class="font-medium text-white text-[15px] mb-1">
                   {{ next?.title }}
                 </p>
-                <p
-                  class="text-sm font-normal text-gray-500 dark:text-gray-400 line-clamp-2"
-                >
+                <p class="text-sm font-normal text-white line-clamp-2">
                   {{ next?.description }}
                 </p>
               </NuxtLink>

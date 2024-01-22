@@ -6,7 +6,7 @@
     }"
     class="left-[1%] top-[3dvh] flex gap-10 justify-between items-start ease-in-out duration-300 transition fixed rounded-lg w-auto p-4 bg-black border-[1px] border-card z-30"
   >
-    <span class="text-sm tracking-wide">
+    <span class="text-sm tracking-wide text-white">
       Attention Reader!<br>
       This Project Has Taken Down Due To {{ text }} 😁
     </span>
