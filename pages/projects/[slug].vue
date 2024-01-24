@@ -3,34 +3,21 @@
     id="container"
     class="cursor-auto pointer-events-auto relative z-20 gap-4 pb-16 pt-14 lg:pt-0 lg:pb-24 bg-black min-h-screen mx-auto max-w-screen-5xl w-full justify-center items-center"
   >
-    <ModalsCard
-      v-if="page.projectStatus"
-      :text="page.projectStatus"
-    />
+    <ModalsCard v-if="page.projectStatus" :text="page.projectStatus" />
     <div
       class="relative flex flex-col text-white w-full items-center justify-center py-16 text-center"
     >
       <h1
         class="text-[clamp(1.25rem,4vw+1rem,4rem)] capitalize font-bold tracking-tight"
       >
-        <span
-          v-for="el in titleSplit"
-          :id="el"
-          :key="el"
-          class="title"
-        >{{
+        <span v-for="el in titleSplit" :id="el" :key="el" class="title">{{
           el
         }}</span>
       </h1>
       <p
         class="text-[clamp(0.6rem,4vw+1rem,0.9rem)] tracking-wider font-normal"
       >
-        <span
-          v-for="el in descSplit"
-          :id="el"
-          :key="el"
-          class="desc"
-        >{{
+        <span v-for="el in descSplit" :id="el" :key="el" class="desc">{{
           el
         }}</span>
       </p>
@@ -65,10 +52,7 @@
               Github
             </NuxtLink>
           </div>
-          <div
-            v-if="page.project"
-            class="flex flex-col gap-1 items-center"
-          >
+          <div v-if="page.project" class="flex flex-col gap-1 items-center">
             <h4
               class="uppercase text-[0.6rem] text-white font-semibold tracking-widest"
             >
@@ -86,15 +70,10 @@
 
         <div class="mx-auto w-full max-w-5xl">
           <article>
-            <ContentRenderer
-              :key="page._id"
-              :value="page"
-            >
-              <template #empty>
-                There's no project found.
-              </template>
+            <ContentRenderer :key="page._id" :value="page">
+              <template #empty> There's no project found. </template>
             </ContentRenderer>
-            <hr class="my-8">
+            <hr class="my-8" />
             <div class="grid gap-8 sm:grid-cols-2 text-white">
               <NuxtLink
                 v-if="prev"
@@ -112,20 +91,20 @@
                 >
                   <span
                     class="w-5 h-5 text-white group-hover:text-white flex items-center justify-center"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-6 h-6"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
-                    />
-                  </svg>
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+                      />
+                    </svg>
                   </span>
                 </div>
                 <p class="font-medium text-white text-[15px] mb-1">
@@ -151,20 +130,20 @@
                 >
                   <span
                     class="w-5 h-5 text-white group-hover:text-white flex items-center justify-center"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-6 h-6"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                    />
-                  </svg>
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                      />
+                    </svg>
                   </span>
                 </div>
                 <p class="font-medium text-white text-[15px] mb-1">
@@ -226,7 +205,6 @@ onMounted(() => {
       animation: tl,
       start: "top top%",
       scrub: true,
-      markers: true,
     });
     tl.from("#footer", {
       translateY: "200%",

@@ -39,7 +39,6 @@ onMounted(() => {
     animation: tl,
     start: "top top%",
     scrub: true,
-    markers: true,
   });
   tl.from("#footer", {
     translateY: "200%",
