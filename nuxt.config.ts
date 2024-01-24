@@ -1,7 +1,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   // debug: true,
-
+  routeRules: {
+    "/": {
+      prerender: true,
+    },
+  },
   content: {
     highlight: {
       theme: "github-dark",

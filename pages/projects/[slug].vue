@@ -3,34 +3,21 @@
     id="container"
     class="cursor-auto pointer-events-auto relative z-20 gap-4 pb-16 pt-14 lg:pt-0 lg:pb-24 bg-black min-h-screen mx-auto max-w-screen-5xl w-full justify-center items-center"
   >
-    <ModalsCard
-      v-if="page.projectStatus"
-      :text="page.projectStatus"
-    />
+    <ModalsCard v-if="page.projectStatus" :text="page.projectStatus" />
     <div
       class="relative flex flex-col text-white w-full items-center justify-center py-16 text-center"
     >
       <h1
         class="text-[clamp(1.25rem,4vw+1rem,4rem)] capitalize font-bold tracking-tight"
       >
-        <span
-          v-for="el in titleSplit"
-          :id="el"
-          :key="el"
-          class="title"
-        >{{
+        <span v-for="el in titleSplit" :id="el" :key="el" class="title">{{
           el
         }}</span>
       </h1>
       <p
         class="text-[clamp(0.6rem,4vw+1rem,0.9rem)] tracking-wider font-normal"
       >
-        <span
-          v-for="el in descSplit"
-          :id="el"
-          :key="el"
-          class="desc"
-        >{{
+        <span v-for="el in descSplit" :id="el" :key="el" class="desc">{{
           el
         }}</span>
       </p>
@@ -65,10 +52,7 @@
               Github
             </NuxtLink>
           </div>
-          <div
-            v-if="page.project"
-            class="flex flex-col gap-1 items-center"
-          >
+          <div v-if="page.project" class="flex flex-col gap-1 items-center">
             <h4
               class="uppercase text-[0.6rem] text-white font-semibold tracking-widest"
             >
@@ -87,7 +71,7 @@
         <div class="mx-auto w-full max-w-5xl">
           <article class="w-full text-justify px-4 md:px-8">
             <ContentDoc />
-            <hr class="my-8">
+            <hr class="my-8" />
             <div class="grid gap-8 sm:grid-cols-2 text-white">
               <NuxtLink
                 v-if="prev"
@@ -98,27 +82,27 @@
                   'col-start-1': next,
                   'col-span-1': next,
                 }"
-                class="max-sm:col-span-2 cursor-none block px-6 py-8 border not-prose rounded-lg hover:border-white ease-in-out duration-300 border-card bg-black group"
+                class="max-sm:col-span-2 cursor-none block px-6 py-8 border-x-[1px] border-t-[1px] not-prose rounded-t-lg hover:border-white ease-in-out duration-300 border-card bg-black group"
               >
                 <div
                   class="inline-flex items-center rounded-full p-1.5 bg-black group-hover:bg-black ring-1 ring-gray-300 dark:ring-gray-700 mb-4 group-hover:ring-white"
                 >
                   <span
                     class="w-5 h-5 text-white group-hover:text-white flex items-center justify-center"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-6 h-6"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
-                    />
-                  </svg>
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+                      />
+                    </svg>
                   </span>
                 </div>
                 <p class="font-medium text-white text-[15px] mb-1">
@@ -137,27 +121,27 @@
                   'col-start-2': prev,
                   'col-span-1': prev,
                 }"
-                class="max-sm:col-span-2 cursor-none block px-6 py-8 border not-prose rounded-lg hover:border-white ease-in-out duration-300 border-card bg-black group"
+                class="max-sm:col-span-2 cursor-none block px-6 py-8 border-x-[1px] border-t-[1px] not-prose rounded-t-lg hover:border-white ease-in-out duration-300 border-card bg-black group"
               >
                 <div
                   class="inline-flex items-center rounded-full p-1.5 bg-black group-hover:bg-black ring-1 ring-gray-300 dark:ring-gray-700 mb-4 group-hover:ring-white"
                 >
                   <span
                     class="w-5 h-5 text-white group-hover:text-white flex items-center justify-center"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-6 h-6"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                    />
-                  </svg>
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                      />
+                    </svg>
                   </span>
                 </div>
                 <p class="font-medium text-white text-[15px] mb-1">
@@ -166,12 +150,6 @@
                 <p class="text-sm font-normal text-white line-clamp-2">
                   {{ next?.description }}
                 </p>
-              </NuxtLink>
-              <NuxtLink
-                to="/projects"
-                class="text-xl pb-2 mt-20 cursor-none before:z-0 before:content-[''] before:h-[4px] before:hover:w-full before:bottom-0 before:w-0 before:duration-300 before:ease-in-out before:bg-gradient-to-r before:from-gradient1 before:to-gradient2 before:absolute before:left-0 text-neutral-950 dark:text-neutral-200"
-              >
-                Back to projects page
               </NuxtLink>
             </div>
           </article>
@@ -182,16 +160,19 @@
 </template>
 
 <script setup>
+const { $gsap: gsap } = useNuxtApp();
 const { fullPath } = useRoute();
 const { page } = useContent();
+const [prev, next] = await queryContent().findSurround(fullPath);
+
 const titleSplit = page.value.title.split("");
 const descSplit = page.value.description.split("");
 
 onMounted(() => {
-  const tl2 = gsap.timeline();
-  const tl3 = gsap.timeline();
+  const header = gsap.timeline();
+  const paragraph = gsap.timeline();
   gsap.utils.toArray(".title").forEach((title) => {
-    tl2.from(title, {
+    header.from(title, {
       translateX: "-100%",
       opacity: 0,
       stagger: 0.1,
@@ -200,9 +181,8 @@ onMounted(() => {
       ease: "sine.inOut",
     });
   });
-
   gsap.utils.toArray(".desc").forEach((desc) => {
-    tl3.from(desc, {
+    paragraph.from(desc, {
       rotate: 50,
       opacity: 0,
       stagger: 0.1,
@@ -212,9 +192,6 @@ onMounted(() => {
     });
   });
 });
-
-const [prev, next] = await queryContent().findSurround(fullPath);
-useContentHead(page);
 </script>
 
 <style>

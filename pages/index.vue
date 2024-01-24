@@ -48,16 +48,11 @@
         >
           <span
             class="text-white font-normal tracking-tight text-[clamp(1.25rem,4vw+1rem,1.5rem)]"
-            >Drigo Alexander</span
-          >
+          >Drigo Alexander</span>
           ⌜ Junior Developer Who Loves
-          <span class="hover:text-[#00DC82] ease-in-out duration-300"
-            >Nuxt</span
-          >
+          <span class="hover:text-[#00DC82] ease-in-out duration-300">Nuxt</span>
           and
-          <span class="hover:text-gradient1 ease-in-out duration-300"
-            >Frontend</span
-          >
+          <span class="hover:text-gradient1 ease-in-out duration-300">Frontend</span>
           things ✌️
         </h1>
 
@@ -68,16 +63,14 @@
             <span
               class="border-b-[1px] hover:text-[#00DC82] ease-in-out duration-300"
             >
-              Nuxt</span
-            >
+              Nuxt</span>
           </UTooltip>
           , and currently exploring the backend universe with
           <UTooltip text="Currently, Building App With Go">
             <span
               class="border-b-[1px] hover:text-[#29BEB0] ease-in-out duration-300"
-              >Go</span
-            > </UTooltip
-          >.
+            >Go</span>
+          </UTooltip>.
         </p>
       </div>
       <!-- End Identity -->
@@ -92,8 +85,7 @@
           Tech Stack
           <span
             class="text-[clamp(1rem,4vw+1rem,1.25rem)] font-thin capitalize tracking-wide text-[#989899]"
-            >⌜ for Daily Coding</span
-          >
+          >⌜ for Daily Coding</span>
         </h2>
 
         <div class="flex flex-wrap items-center justify-around gap-10">
@@ -163,15 +155,14 @@
           Tools
           <span
             class="tracking-wide pt-6 leading-7 text-[#989899] text-[clamp(0.75rem,4vw+1rem,1rem)]"
-            >⌜ Something That I Found on the internet, and why not making it to
+          >⌜ Something That I Found on the internet, and why not making it to
             help others?
           </span>
         </h1>
         <div class="w-full mt-6 flex flex-col gap-6">
           <LazySmallLinkCard
-            disabled
-            class="cursor-not-allowed"
-            header="Fluid Element"
+            path="/"
+            header="Fluid Style"
             paragraph="Generate Tailwind / CSS Code For Responsive Text / Width"
           />
         </div>

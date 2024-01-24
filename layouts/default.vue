@@ -16,7 +16,7 @@
       class="fixed block pointer-events-none size-1.5 rounded-full bg-white left-1/2 -translate-x-1/2 -translate-y-1/2 dot-tracker z-[999] ease-in-out transition duration-300"
     />
     <NuxtPage id="container" />
-    <FooterLayout />
+    <FooterLayout id="footer" />
   </div>
 </template>
 
@@ -33,6 +33,21 @@ const Y = ref(0);
 const mappedMouseX = ref(0);
 
 onMounted(() => {
+  const tl = gsap.timeline();
+  ScrollTrigger.create({
+    trigger: "#container",
+    animation: tl,
+    start: "top top%",
+    scrub: true,
+    markers: true,
+  });
+  tl.from("#footer", {
+    translateY: "200%",
+    scale: 0,
+    borderRadius: "9999px",
+    opacity: 0,
+  });
+
   window.onmousemove = (event) => {
     const rec = document.getElementById("rectangle");
     const windowWidth = window.innerWidth;
@@ -50,22 +65,5 @@ onMounted(() => {
       }
     );
   };
-
-  const tl = gsap.timeline();
-  tl.from("#footer", {
-    translateY: "200%",
-    scale: 0,
-    borderRadius: "9999px",
-    opacity: 0,
-    ease: "sine.inOut",
-  });
-
-  ScrollTrigger.create({
-    trigger: "#container",
-    animation: tl,
-    start: "top top",
-    scrub: true,
-    pinSpacing: false,
-  });
 });
 </script>

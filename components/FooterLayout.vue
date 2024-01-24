@@ -1,7 +1,6 @@
 <template>
   <div
-    id="footer"
-    class="scale-100 relative z-0 px-12 md:px-24 mt-16 py-32 grid content-between w-full text-black min-h-screen bg-white grid-cols-2"
+    class="z-0 px-12 md:px-24 mt-16 py-32 grid content-between w-full text-black min-h-screen max-h-[200vh] bg-white grid-cols-2"
   >
     <div
       class="tracking-wide text-sm max-md:col-span-2 md:max-[850px]:col-span-2 col-span-1 col-start-1 md:col-start-2 flex flex-col md:flex-row gap-8 items-start justify-center"
@@ -62,25 +61,24 @@
 const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp();
 
 onMounted(() => {
+  const footerText = gsap.timeline();
   const targets = gsap.utils.toArray(".footerText");
-  const tl = gsap.timeline();
-
   targets.forEach((el) => {
-    tl.from(el, {
+    footerText.from(el, {
       opacity: 0,
       translateY: "300px",
       stagger: 1,
+
       duration: 0.5,
       ease: "bounce.inOut",
     });
   });
 
   ScrollTrigger.create({
-    animation: tl,
+    animation: footerText,
     trigger: "#container",
-    start: "bottom top",
+    start: "top top",
     scrub: true,
-    pin: true,
     pinSpacing: false,
   });
 });
