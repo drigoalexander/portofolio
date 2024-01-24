@@ -3,6 +3,9 @@ export default defineNuxtConfig({
   debug: true,
   routeRules: {
     "/": {
+      isr: true,
+    },
+    "/projects/*": {
       prerender: true,
     },
   },
