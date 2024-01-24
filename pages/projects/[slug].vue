@@ -8,7 +8,7 @@
       :text="page.projectStatus"
     />
     <div
-      class="relative flex flex-col text-white w-full items-center justify-center py-16"
+      class="relative flex flex-col text-white w-full items-center justify-center py-16 text-center"
     >
       <h1
         class="text-[clamp(1.25rem,4vw+1rem,4rem)] capitalize font-bold tracking-tight"
@@ -42,15 +42,15 @@
     <main class="relative mt-24">
       <div class="flex justify-between px-4 mx-auto flex-col items-center">
         <h1
-          class="text-[clamp(1.25rem,4vw+1rem,3rem)] capitalize font-bold tracking-tight"
+          class="text-[clamp(2.5rem,4vw+1rem,3rem)] capitalize font-bold tracking-tight text-center text-white"
         >
-          <span>{{ page.opening }}</span>
+          {{ page.opening }}
         </h1>
 
-        <div class="flex gap-16 items-center justify-center py-8">
+        <div class="flex gap-16 items-center justify-center py-24">
           <div
             v-if="page.sourceCode"
-            class="flex flex-col gap-1 items-center"
+            class="flex flex-col gap-1 items-center text-center"
           >
             <h4
               class="uppercase text-[0.6rem] text-white font-semibold tracking-widest"
@@ -179,39 +179,15 @@
       </div>
     </main>
   </div>
-  <FooterLayout />
 </template>
 
 <script setup>
-definePageMeta({
-  layout: "blog",
-});
-
 const { fullPath } = useRoute();
 const { page } = useContent();
 const titleSplit = page.value.title.split("");
 const descSplit = page.value.description.split("");
 
-const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp();
-
 onMounted(() => {
-  const tl = gsap.timeline();
-  tl.from("#footer", {
-    translateY: "200%",
-    scale: 0,
-    borderRadius: "9999px",
-    opacity: 0,
-    ease: "sine.inOut",
-  });
-
-  ScrollTrigger.create({
-    trigger: "#container",
-    animation: tl,
-    start: "top top",
-    scrub: true,
-    pinSpacing: false,
-  });
-
   const tl2 = gsap.timeline();
   const tl3 = gsap.timeline();
   gsap.utils.toArray(".title").forEach((title) => {

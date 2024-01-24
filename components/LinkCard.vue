@@ -1,6 +1,5 @@
 <template>
   <NuxtLink
-    style="font-family: 'inter', sans-serif"
     :to="path"
     class="cursor-none w-full max-w-screen-lg relative bg-card ease-in-out duration-300 py-4 flex items-center justify-between group"
   >
@@ -10,10 +9,12 @@
     <div class="flex flex-col gap-2 items-start">
       <span
         class="text-white font-semibold text-[clamp(1rem,4vw+1rem,1.25rem) ]"
-      >{{ header }}</span>
+        >{{ header }}</span
+      >
       <span
         class="capitalize text-[#8A8A8E] text-[clamp(0.875rem,4vw+1rem,1rem)) font-light] group-hover:text-[#989899] ease-in-out duration-300"
-      >{{ paragraph }}</span>
+        >{{ paragraph }}</span
+      >
     </div>
 
     <svg
