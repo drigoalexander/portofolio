@@ -3,21 +3,34 @@
     id="container"
     class="cursor-auto pointer-events-auto relative z-20 gap-4 pb-16 pt-14 lg:pt-0 lg:pb-24 bg-black min-h-screen mx-auto max-w-screen-5xl w-full justify-center items-center"
   >
-    <ModalsCard v-if="page.projectStatus" :text="page.projectStatus" />
+    <ModalsCard
+      v-if="page.projectStatus"
+      :text="page.projectStatus"
+    />
     <div
       class="relative flex flex-col text-white w-full items-center justify-center py-16 text-center"
     >
       <h1
         class="text-[clamp(1.25rem,4vw+1rem,4rem)] capitalize font-bold tracking-tight"
       >
-        <span v-for="el in titleSplit" :id="el" :key="el" class="title">{{
+        <span
+          v-for="el in titleSplit"
+          :id="el"
+          :key="el"
+          class="title"
+        >{{
           el
         }}</span>
       </h1>
       <p
         class="text-[clamp(0.6rem,4vw+1rem,0.9rem)] tracking-wider font-normal"
       >
-        <span v-for="el in descSplit" :id="el" :key="el" class="desc">{{
+        <span
+          v-for="el in descSplit"
+          :id="el"
+          :key="el"
+          class="desc"
+        >{{
           el
         }}</span>
       </p>
@@ -52,7 +65,10 @@
               Github
             </NuxtLink>
           </div>
-          <div v-if="page.project" class="flex flex-col gap-1 items-center">
+          <div
+            v-if="page.project"
+            class="flex flex-col gap-1 items-center"
+          >
             <h4
               class="uppercase text-[0.6rem] text-white font-semibold tracking-widest"
             >
@@ -69,9 +85,16 @@
         </div>
 
         <div class="mx-auto w-full max-w-5xl">
-          <article class="w-full text-justify px-4 md:px-8">
-            <ContentDoc />
-            <hr class="my-8" />
+          <article>
+            <ContentRenderer
+              :key="page._id"
+              :value="page"
+            >
+              <template #empty>
+                There's no project found.
+              </template>
+            </ContentRenderer>
+            <hr class="my-8">
             <div class="grid gap-8 sm:grid-cols-2 text-white">
               <NuxtLink
                 v-if="prev"
@@ -89,20 +112,20 @@
                 >
                   <span
                     class="w-5 h-5 text-white group-hover:text-white flex items-center justify-center"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-6 h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
-                      />
-                    </svg>
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+                    />
+                  </svg>
                   </span>
                 </div>
                 <p class="font-medium text-white text-[15px] mb-1">
@@ -128,20 +151,20 @@
                 >
                   <span
                     class="w-5 h-5 text-white group-hover:text-white flex items-center justify-center"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-6 h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-                      />
-                    </svg>
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                    />
+                  </svg>
                   </span>
                 </div>
                 <p class="font-medium text-white text-[15px] mb-1">
@@ -157,40 +180,65 @@
       </div>
     </main>
   </div>
+  <FooterLayout id="footer" />
 </template>
 
 <script setup>
-const { $gsap: gsap } = useNuxtApp();
-const { fullPath } = useRoute();
-const { page } = useContent();
-const [prev, next] = await queryContent().findSurround(fullPath);
+definePageMeta({
+  layout: "blog",
+});
 
+const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp();
+const { path } = useRoute();
+const { page, prev, next } = useContent();
+let ctx;
 const titleSplit = page.value.title.split("");
 const descSplit = page.value.description.split("");
 
 onMounted(() => {
-  const header = gsap.timeline();
-  const paragraph = gsap.timeline();
-  gsap.utils.toArray(".title").forEach((title) => {
-    header.from(title, {
-      translateX: "-100%",
-      opacity: 0,
-      stagger: 0.1,
+  ctx = gsap.context(() => {
+    const header = gsap.timeline();
+    const paragraph = gsap.timeline();
+    gsap.utils.toArray(".title").forEach((title) => {
+      header.from(title, {
+        translateX: "-100%",
+        opacity: 0,
+        stagger: 0.1,
 
-      duration: 0.1,
-      ease: "sine.inOut",
+        duration: 0.1,
+        ease: "sine.inOut",
+      });
+    });
+    gsap.utils.toArray(".desc").forEach((desc) => {
+      paragraph.from(desc, {
+        rotate: 50,
+        opacity: 0,
+        stagger: 0.1,
+
+        duration: 0.1,
+        ease: "sine.inOut",
+      });
+    });
+
+    const tl = gsap.timeline();
+    ScrollTrigger.create({
+      trigger: "#container",
+      animation: tl,
+      start: "top top%",
+      scrub: true,
+      markers: true,
+    });
+    tl.from("#footer", {
+      translateY: "200%",
+      scale: 0,
+      borderRadius: "9999px",
+      opacity: 0,
     });
   });
-  gsap.utils.toArray(".desc").forEach((desc) => {
-    paragraph.from(desc, {
-      rotate: 50,
-      opacity: 0,
-      stagger: 0.1,
+});
 
-      duration: 0.1,
-      ease: "sine.inOut",
-    });
-  });
+onBeforeUnmount(() => {
+  ctx.revert();
 });
 </script>
 

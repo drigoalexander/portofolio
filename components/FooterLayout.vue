@@ -1,12 +1,14 @@
 <template>
   <div
-    class="z-0 px-12 md:px-24 mt-16 py-32 grid content-between w-full text-black min-h-screen max-h-[200vh] bg-white grid-cols-2"
+    class="px-12 md:px-24 mt-16 py-32 grid z-30 content-between w-full text-black min-h-screen max-h-[200vh] bg-white grid-cols-2"
   >
     <div
       class="tracking-wide text-sm max-md:col-span-2 md:max-[850px]:col-span-2 col-span-1 col-start-1 md:col-start-2 flex flex-col md:flex-row gap-8 items-start justify-center"
     >
       <div class="flex flex-col gap-3">
-        <h6 class="text-base footerText">Internet</h6>
+        <h6 class="text-base footerText">
+          Internet
+        </h6>
         <div class="flex flex-row md:flex-col gap-3">
           <NuxtLink
             v-for="value in internet"
@@ -21,16 +23,15 @@
       </div>
 
       <h6 class="text-base max-w-sm footerText">
-        Hi, There! 👋. <br />
+        Hi, There! 👋. <br>
         <span class="text-sm footerText">
           This is the end of my website, Hope you enjoy my website.
-          <br /><br />
+          <br><br>
           <span class="footerText">
             Are you searching for someone that can help
             <UIcon name="i-fluent-emoji-index-pointing-at-the-viewer" /> with
             nuxt <UIcon name="i-fluent-emoji-eyes" />? I can help you build
-            something!</span
-          >
+            something!</span>
         </span>
       </h6>
 

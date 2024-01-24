@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  // debug: true,
+  debug: true,
   routeRules: {
     "/": {
       prerender: true,
